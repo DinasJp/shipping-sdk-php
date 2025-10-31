@@ -16,8 +16,6 @@ PHP 8.1 and later.
 composer require dinas/shipping-sdk-php
 ```
 
-Then run `composer install`
-
 Your project is free to choose the http client of your choice
 Please require packages that will provide http client functionality:  
 https://packagist.org/providers/psr/http-client-implementation  
