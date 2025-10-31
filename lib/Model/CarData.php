@@ -162,7 +162,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
         'height' => true,
         'price_terms' => false,
         'unit_price' => true,
-        'purchase_date' => false,
+        'purchase_date' => true,
         'damaged' => true,
         'ship_date_limit' => false,
         'withhold' => true,
@@ -1404,7 +1404,14 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPurchaseDate($purchase_date)
     {
         if (is_null($purchase_date)) {
-            throw new \InvalidArgumentException('non-nullable purchase_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'purchase_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('purchase_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['purchase_date'] = $purchase_date;
 
