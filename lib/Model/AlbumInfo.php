@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient\Model;
+namespace Dinas\ShippingSdk\Model;
 
 use \ArrayAccess;
-use \Dinas\ShippingClient\ObjectSerializer;
+use \Dinas\ShippingSdk\ObjectSerializer;
 
 /**
  * AlbumInfo Class Doc Comment
  *
  * @category Class
- * @description Photo album simple representation
- * @package  Dinas\ShippingClient
+ * @description Basic photo album info
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>

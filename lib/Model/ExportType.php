@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,14 +27,14 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient\Model;
-use \Dinas\ShippingClient\ObjectSerializer;
+namespace Dinas\ShippingSdk\Model;
+use \Dinas\ShippingSdk\ObjectSerializer;
 
 /**
  * ExportType Class Doc Comment
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

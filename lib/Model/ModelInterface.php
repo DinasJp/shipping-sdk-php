@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  Dinas\ShippingClient\Model
+ * @package  Dinas\ShippingSdk\Model
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,12 +27,12 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient\Model;
+namespace Dinas\ShippingSdk\Model;
 
 /**
  * Interface abstracting model access.
  *
- * @package Dinas\ShippingClient\Model
+ * @package Dinas\ShippingSdk\Model
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

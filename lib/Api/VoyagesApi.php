@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient\Api;
+namespace Dinas\ShippingSdk\Api;
 
 use GuzzleHttp\Psr7\MultipartStream;
 use Http\Client\Common\Plugin\ErrorPlugin;
@@ -40,12 +40,12 @@ use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\Psr18ClientDiscovery;
 use Http\Message\RequestFactory;
 use Http\Promise\Promise;
-use Dinas\ShippingClient\ApiException;
-use Dinas\ShippingClient\Configuration;
-use Dinas\ShippingClient\DebugPlugin;
-use Dinas\ShippingClient\HeaderSelector;
-use Dinas\ShippingClient\FormDataProcessor;
-use Dinas\ShippingClient\ObjectSerializer;
+use Dinas\ShippingSdk\ApiException;
+use Dinas\ShippingSdk\Configuration;
+use Dinas\ShippingSdk\DebugPlugin;
+use Dinas\ShippingSdk\HeaderSelector;
+use Dinas\ShippingSdk\FormDataProcessor;
+use Dinas\ShippingSdk\ObjectSerializer;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
@@ -60,7 +60,7 @@ use function sprintf;
  * VoyagesApi Class Doc Comment
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -182,9 +182,9 @@ class VoyagesApi
      *
      * @param  int $voyage Voyage ID (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\Voyage
+     * @return \Dinas\ShippingSdk\Model\Voyage
      */
     public function getVoyage($voyage)
     {
@@ -199,9 +199,9 @@ class VoyagesApi
      *
      * @param  int $voyage Voyage ID (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\Voyage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\Voyage, HTTP status code, HTTP response headers (array of strings)
      */
     public function getVoyageWithHttpInfo($voyage)
     {
@@ -237,7 +237,7 @@ class VoyagesApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\Voyage',
+                        '\Dinas\ShippingSdk\Model\Voyage',
                         $request,
                         $response,
                     );
@@ -258,7 +258,7 @@ class VoyagesApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\Voyage',
+                '\Dinas\ShippingSdk\Model\Voyage',
                 $request,
                 $response,
             );
@@ -267,7 +267,7 @@ class VoyagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\Voyage',
+                        '\Dinas\ShippingSdk\Model\Voyage',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -311,7 +311,7 @@ class VoyagesApi
      */
     public function getVoyageAsyncWithHttpInfo($voyage)
     {
-        $returnType = '\Dinas\ShippingClient\Model\Voyage';
+        $returnType = '\Dinas\ShippingSdk\Model\Voyage';
         $request = $this->getVoyageRequest($voyage);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
@@ -447,9 +447,9 @@ class VoyagesApi
      * @param  int $per_page Number of items per page. **default: 100** (optional)
      * @param  int $page Page number. **default: 1** (optional)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\VoyagesPaginated
+     * @return \Dinas\ShippingSdk\Model\VoyagesPaginated
      */
     public function getVoyages($status = null, $search = null, $sort = null, $per_page = null, $page = null)
     {
@@ -468,9 +468,9 @@ class VoyagesApi
      * @param  int $per_page Number of items per page. **default: 100** (optional)
      * @param  int $page Page number. **default: 1** (optional)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\VoyagesPaginated, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\VoyagesPaginated, HTTP status code, HTTP response headers (array of strings)
      */
     public function getVoyagesWithHttpInfo($status = null, $search = null, $sort = null, $per_page = null, $page = null)
     {
@@ -506,7 +506,7 @@ class VoyagesApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\VoyagesPaginated',
+                        '\Dinas\ShippingSdk\Model\VoyagesPaginated',
                         $request,
                         $response,
                     );
@@ -527,7 +527,7 @@ class VoyagesApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\VoyagesPaginated',
+                '\Dinas\ShippingSdk\Model\VoyagesPaginated',
                 $request,
                 $response,
             );
@@ -536,7 +536,7 @@ class VoyagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\VoyagesPaginated',
+                        '\Dinas\ShippingSdk\Model\VoyagesPaginated',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -588,7 +588,7 @@ class VoyagesApi
      */
     public function getVoyagesAsyncWithHttpInfo($status = null, $search = null, $sort = null, $per_page = null, $page = null)
     {
-        $returnType = '\Dinas\ShippingClient\Model\VoyagesPaginated';
+        $returnType = '\Dinas\ShippingSdk\Model\VoyagesPaginated';
         $request = $this->getVoyagesRequest($status, $search, $sort, $per_page, $page);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)

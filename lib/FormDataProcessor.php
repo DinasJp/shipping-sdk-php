@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,20 +26,20 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient;
+namespace Dinas\ShippingSdk;
 
 use ArrayAccess;
 use DateTime;
 use GuzzleHttp\Psr7\Utils;
 use Psr\Http\Message\StreamInterface;
 use SplFileObject;
-use Dinas\ShippingClient\Model\ModelInterface;
+use Dinas\ShippingSdk\Model\ModelInterface;
 
 /**
  * FormDataProcessor Class Doc Comment
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

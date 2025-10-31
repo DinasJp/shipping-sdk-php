@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient\Model;
+namespace Dinas\ShippingSdk\Model;
 
 use \ArrayAccess;
-use \Dinas\ShippingClient\ObjectSerializer;
+use \Dinas\ShippingSdk\ObjectSerializer;
 
 /**
  * ActionResponse Class Doc Comment
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,7 +61,7 @@ class ActionResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'ok' => 'bool',
         'job_id' => 'string',
         'message' => 'string',
-        'errors' => '\Dinas\ShippingClient\Model\CarError[]'
+        'errors' => '\Dinas\ShippingSdk\Model\CarError[]'
     ];
 
     /**
@@ -398,7 +398,7 @@ class ActionResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets errors
      *
-     * @return \Dinas\ShippingClient\Model\CarError[]|null
+     * @return \Dinas\ShippingSdk\Model\CarError[]|null
      */
     public function getErrors()
     {
@@ -408,7 +408,7 @@ class ActionResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets errors
      *
-     * @param \Dinas\ShippingClient\Model\CarError[]|null $errors List of errors encountered during processing
+     * @param \Dinas\ShippingSdk\Model\CarError[]|null $errors List of errors encountered during processing
      *
      * @return self
      */

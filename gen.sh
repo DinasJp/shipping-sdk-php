@@ -7,4 +7,4 @@ docker run --rm -v "$PWD:/local" openapitools/openapi-generator-cli \
   -o /local/ \
   --git-user-id DinasJp \
   --git-repo-id shipping-sdk-php \
-  -p invokerPackage=Dinas\\ShippingClient,packageName=ShippingClient,library=psr-18,licenseName=MIT
+  -p invokerPackage=Dinas\\ShippingSdk,packageName=ShippingSdk,library=psr-18,licenseName=MIT

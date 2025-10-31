@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -13,7 +13,7 @@
 /**
  * Shipping API
  *
- * PHP client SDK for Shipping API
+ * PHP client for Shipping API
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@dinas.jp
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace Dinas\ShippingClient\Test\Model;
+namespace Dinas\ShippingSdk\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,8 +35,8 @@ use PHPUnit\Framework\TestCase;
  * CarBaseTest Class Doc Comment
  *
  * @category    Class
- * @description Common editable car fields
- * @package     Dinas\ShippingClient
+ * @description Common car fields
+ * @package     Dinas\ShippingSdk
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

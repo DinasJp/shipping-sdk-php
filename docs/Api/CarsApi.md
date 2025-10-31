@@ -1,4 +1,4 @@
-# Dinas\ShippingClient\CarsApi
+# Dinas\ShippingSdk\CarsApi
 
 All URIs are relative to https://shipping.dinas.jp.
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 ## `getCarPhotos()`
 
 ```php
-getCarPhotos($status, $chassis, $search, $voyage, $photos, $on_yard, $sort, $per_page, $page): \Dinas\ShippingClient\Model\AlbumsPaginated
+getCarPhotos($status, $chassis, $search, $voyage, $photos, $on_yard, $sort, $per_page, $page): \Dinas\ShippingSdk\Model\AlbumsPaginated
 ```
 
 Get car photos
@@ -29,10 +29,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\CarsApi(
+$apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\AlbumsPaginated**](../Model/AlbumsPaginated.md)
+[**\Dinas\ShippingSdk\Model\AlbumsPaginated**](../Model/AlbumsPaginated.md)
 
 ### Authorization
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 ## `getCars()`
 
 ```php
-getCars($status, $chassis, $search, $voyage, $vehicle_state, $vehicle_type, $photos, $docs, $on_yard, $price_terms, $sort, $per_page, $page): \Dinas\ShippingClient\Model\CarsPaginated
+getCars($status, $chassis, $search, $voyage, $vehicle_state, $vehicle_type, $photos, $docs, $on_yard, $price_terms, $sort, $per_page, $page): \Dinas\ShippingSdk\Model\CarsPaginated
 ```
 
 Get paginated list of cars
@@ -105,10 +105,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\CarsApi(
+$apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\CarsPaginated**](../Model/CarsPaginated.md)
+[**\Dinas\ShippingSdk\Model\CarsPaginated**](../Model/CarsPaginated.md)
 
 ### Authorization
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 ## `storeCarDocuments()`
 
 ```php
-storeCarDocuments($items): \Dinas\ShippingClient\Model\ActionResponse
+storeCarDocuments($items): \Dinas\ShippingSdk\Model\ActionResponse
 ```
 
 Store car documents
@@ -189,16 +189,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\CarsApi(
+$apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
     $config
 );
-$items = array(new \Dinas\ShippingClient\Model\\Dinas\ShippingClient\Model\DocumentData()); // \Dinas\ShippingClient\Model\DocumentData[]
+$items = array(new \Dinas\ShippingSdk\Model\\Dinas\ShippingSdk\Model\DocumentData()); // \Dinas\ShippingSdk\Model\DocumentData[]
 
 try {
     $result = $apiInstance->storeCarDocuments($items);
@@ -212,11 +212,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **items** | [**\Dinas\ShippingClient\Model\DocumentData[]**](../Model/\Dinas\ShippingClient\Model\DocumentData.md)|  |
+ **items** | [**\Dinas\ShippingSdk\Model\DocumentData[]**](../Model/\Dinas\ShippingSdk\Model\DocumentData.md)|  |
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\ActionResponse**](../Model/ActionResponse.md)
+[**\Dinas\ShippingSdk\Model\ActionResponse**](../Model/ActionResponse.md)
 
 ### Authorization
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 ## `storeCarPhotos()`
 
 ```php
-storeCarPhotos($items): \Dinas\ShippingClient\Model\ActionResponse
+storeCarPhotos($items): \Dinas\ShippingSdk\Model\ActionResponse
 ```
 
 Store car photos
@@ -249,16 +249,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\CarsApi(
+$apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
     $config
 );
-$items = array(new \Dinas\ShippingClient\Model\\Dinas\ShippingClient\Model\AlbumData()); // \Dinas\ShippingClient\Model\AlbumData[]
+$items = array(new \Dinas\ShippingSdk\Model\\Dinas\ShippingSdk\Model\AlbumData()); // \Dinas\ShippingSdk\Model\AlbumData[]
 
 try {
     $result = $apiInstance->storeCarPhotos($items);
@@ -272,11 +272,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **items** | [**\Dinas\ShippingClient\Model\AlbumData[]**](../Model/\Dinas\ShippingClient\Model\AlbumData.md)|  |
+ **items** | [**\Dinas\ShippingSdk\Model\AlbumData[]**](../Model/\Dinas\ShippingSdk\Model\AlbumData.md)|  |
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\ActionResponse**](../Model/ActionResponse.md)
+[**\Dinas\ShippingSdk\Model\ActionResponse**](../Model/ActionResponse.md)
 
 ### Authorization
 
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 ## `syncCars()`
 
 ```php
-syncCars($car_data): \Dinas\ShippingClient\Model\CarSyncResponse
+syncCars($car_data): \Dinas\ShippingSdk\Model\CarSyncResponse
 ```
 
 Create or update cars
@@ -309,16 +309,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\CarsApi(
+$apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
     $config
 );
-$car_data = array(new \Dinas\ShippingClient\Model\CarData()); // \Dinas\ShippingClient\Model\CarData[]
+$car_data = array(new \Dinas\ShippingSdk\Model\CarData()); // \Dinas\ShippingSdk\Model\CarData[]
 
 try {
     $result = $apiInstance->syncCars($car_data);
@@ -332,11 +332,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **car_data** | [**\Dinas\ShippingClient\Model\CarData[]**](../Model/CarData.md)|  |
+ **car_data** | [**\Dinas\ShippingSdk\Model\CarData[]**](../Model/CarData.md)|  |
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\CarSyncResponse**](../Model/CarSyncResponse.md)
+[**\Dinas\ShippingSdk\Model\CarSyncResponse**](../Model/CarSyncResponse.md)
 
 ### Authorization
 

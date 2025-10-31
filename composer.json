@@ -51,9 +51,9 @@
         "php-http/guzzle7-adapter": "^1.0"
     },
     "autoload": {
-        "psr-4": { "Dinas\\ShippingClient\\" : "lib/" }
+        "psr-4": { "Dinas\\ShippingSdk\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "Dinas\\ShippingClient\\Test\\" : "test/" }
+        "psr-4": { "Dinas\\ShippingSdk\\Test\\" : "test/" }
     }
 }

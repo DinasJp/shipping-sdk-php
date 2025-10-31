@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentData
+ * VoyageInfo
  *
  * PHP version 8.1
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \Dinas\ShippingSdk\ObjectSerializer;
 
 /**
- * DocumentData Class Doc Comment
+ * VoyageInfo Class Doc Comment
  *
  * @category Class
+ * @description Basic voyage info
  * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DocumentData implements ModelInterface, ArrayAccess, \JsonSerializable
+class VoyageInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class DocumentData implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DocumentData';
+    protected static $openAPIModelName = 'VoyageInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +59,9 @@ class DocumentData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'chassis' => 'string',
-        'type' => 'string',
-        'url' => 'string',
-        'file' => '\SplFileObject',
-        'valid_until' => '\DateTime'
+        'id' => 'int',
+        'status' => '\Dinas\ShippingSdk\Model\VoyageStatus',
+        'number' => 'string'
     ];
 
     /**
@@ -73,11 +72,9 @@ class DocumentData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'chassis' => null,
-        'type' => null,
-        'url' => 'uri',
-        'file' => 'binary',
-        'valid_until' => 'date'
+        'id' => 'int64',
+        'status' => null,
+        'number' => null
     ];
 
     /**
@@ -86,11 +83,9 @@ class DocumentData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'chassis' => false,
-        'type' => false,
-        'url' => false,
-        'file' => false,
-        'valid_until' => false
+        'id' => false,
+        'status' => false,
+        'number' => false
     ];
 
     /**
@@ -179,11 +174,9 @@ class DocumentData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'chassis' => 'chassis',
-        'type' => 'type',
-        'url' => 'url',
-        'file' => 'file',
-        'valid_until' => 'valid_until'
+        'id' => 'id',
+        'status' => 'status',
+        'number' => 'number'
     ];
 
     /**
@@ -192,11 +185,9 @@ class DocumentData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'chassis' => 'setChassis',
-        'type' => 'setType',
-        'url' => 'setUrl',
-        'file' => 'setFile',
-        'valid_until' => 'setValidUntil'
+        'id' => 'setId',
+        'status' => 'setStatus',
+        'number' => 'setNumber'
     ];
 
     /**
@@ -205,11 +196,9 @@ class DocumentData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'chassis' => 'getChassis',
-        'type' => 'getType',
-        'url' => 'getUrl',
-        'file' => 'getFile',
-        'valid_until' => 'getValidUntil'
+        'id' => 'getId',
+        'status' => 'getStatus',
+        'number' => 'getNumber'
     ];
 
     /**
@@ -253,29 +242,6 @@ class DocumentData implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_EXPORT_CERTIFICATE = 'export_certificate';
-    public const TYPE_VEHICLE_INVOICE = 'vehicle_invoice';
-    public const TYPE_VEHICLE_CATALOG = 'vehicle_catalog';
-    public const TYPE_PRICE_CONFIRMATION = 'price_confirmation';
-    public const TYPE_EXPLANATORY_NOTE = 'explanatory_note';
-    public const TYPE_REPAIR_ESTIMATE = 'repair_estimate';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_EXPORT_CERTIFICATE,
-            self::TYPE_VEHICLE_INVOICE,
-            self::TYPE_VEHICLE_CATALOG,
-            self::TYPE_PRICE_CONFIRMATION,
-            self::TYPE_EXPLANATORY_NOTE,
-            self::TYPE_REPAIR_ESTIMATE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -292,11 +258,9 @@ class DocumentData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('chassis', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('file', $data ?? [], null);
-        $this->setIfExists('valid_until', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('number', $data ?? [], null);
     }
 
     /**
@@ -326,29 +290,6 @@ class DocumentData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['chassis'] === null) {
-            $invalidProperties[] = "'chassis' can't be null";
-        }
-        if ((mb_strlen($this->container['chassis']) > 50)) {
-            $invalidProperties[] = "invalid value for 'chassis', the character length must be smaller than or equal to 50.";
-        }
-
-        if ((mb_strlen($this->container['chassis']) < 4)) {
-            $invalidProperties[] = "invalid value for 'chassis', the character length must be bigger than or equal to 4.";
-        }
-
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -365,153 +306,82 @@ class DocumentData implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets chassis
+     * Gets id
      *
-     * @return string
+     * @return int|null
      */
-    public function getChassis()
+    public function getId()
     {
-        return $this->container['chassis'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets chassis
+     * Sets id
      *
-     * @param string $chassis Chassis number
+     * @param int|null $id Voyage ID
      *
      * @return self
      */
-    public function setChassis($chassis)
+    public function setId($id)
     {
-        if (is_null($chassis)) {
-            throw new \InvalidArgumentException('non-nullable chassis cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        if ((mb_strlen($chassis) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $chassis when calling DocumentData., must be smaller than or equal to 50.');
-        }
-        if ((mb_strlen($chassis) < 4)) {
-            throw new \InvalidArgumentException('invalid length for $chassis when calling DocumentData., must be bigger than or equal to 4.');
-        }
-
-        $this->container['chassis'] = $chassis;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets status
      *
-     * @return string
+     * @return \Dinas\ShippingSdk\Model\VoyageStatus|null
      */
-    public function getType()
+    public function getStatus()
     {
-        return $this->container['type'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets type
+     * Sets status
      *
-     * @param string $type Document type
+     * @param \Dinas\ShippingSdk\Model\VoyageStatus|null $status status
      *
      * @return self
      */
-    public function setType($type)
+    public function setStatus($status)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets url
+     * Gets number
      *
      * @return string|null
      */
-    public function getUrl()
+    public function getNumber()
     {
-        return $this->container['url'];
+        return $this->container['number'];
     }
 
     /**
-     * Sets url
+     * Sets number
      *
-     * @param string|null $url Document URL. **Required if file not provided**
+     * @param string|null $number Voyage number
      *
      * @return self
      */
-    public function setUrl($url)
+    public function setNumber($number)
     {
-        if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
+        if (is_null($number)) {
+            throw new \InvalidArgumentException('non-nullable number cannot be null');
         }
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets file
-     *
-     * @return \SplFileObject|null
-     */
-    public function getFile()
-    {
-        return $this->container['file'];
-    }
-
-    /**
-     * Sets file
-     *
-     * @param \SplFileObject|null $file Document file. **Required if url not provided**
-     *
-     * @return self
-     */
-    public function setFile($file)
-    {
-        if (is_null($file)) {
-            throw new \InvalidArgumentException('non-nullable file cannot be null');
-        }
-        $this->container['file'] = $file;
-
-        return $this;
-    }
-
-    /**
-     * Gets valid_until
-     *
-     * @return \DateTime|null
-     */
-    public function getValidUntil()
-    {
-        return $this->container['valid_until'];
-    }
-
-    /**
-     * Sets valid_until
-     *
-     * @param \DateTime|null $valid_until Document expiration date
-     *
-     * @return self
-     */
-    public function setValidUntil($valid_until)
-    {
-        if (is_null($valid_until)) {
-            throw new \InvalidArgumentException('non-nullable valid_until cannot be null');
-        }
-        $this->container['valid_until'] = $valid_until;
+        $this->container['number'] = $number;
 
         return $this;
     }

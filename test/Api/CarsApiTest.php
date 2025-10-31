@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -12,7 +12,7 @@
 /**
  * Shipping API
  *
- * PHP client SDK for Shipping API
+ * PHP client for Shipping API
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: info@dinas.jp
@@ -26,18 +26,18 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace Dinas\ShippingClient\Test\Api;
+namespace Dinas\ShippingSdk\Test\Api;
 
-use \Dinas\ShippingClient\Configuration;
-use \Dinas\ShippingClient\ApiException;
-use \Dinas\ShippingClient\ObjectSerializer;
+use \Dinas\ShippingSdk\Configuration;
+use \Dinas\ShippingSdk\ApiException;
+use \Dinas\ShippingSdk\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * CarsApiTest Class Doc Comment
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

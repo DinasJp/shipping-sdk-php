@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rate** | **int** | USD Rate | [optional]
+**rate** | **float** | USD Rate | [optional]
 **freight_main** | **int** | Freight cost for shipper, in JPY | [optional]
 **freight_secondary** | **int** | Freight cost for consignee, in USD | [optional]
 **dismantle** | **int** | Dismantle cost | [optional]

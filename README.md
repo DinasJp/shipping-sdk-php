@@ -1,4 +1,4 @@
-# ShippingClient
+# Dinas Shipping Sdk
 
 PHP client for Shipping API
 
@@ -8,32 +8,20 @@ For more information, please visit [https://github.com/dinasjp](https://github.c
 
 ### Requirements
 
-PHP 7.2 and later.
+PHP 8.1 and later.
 
-### Composer
+### Install
 
-To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
-
-```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/DinasJp/shipping-sdk-php.git"
-    }
-  ],
-  "require": {
-    "DinasJp/shipping-sdk-php": "*@dev"
-  }
-}
+```bash
+composer require dinas/shipping-sdk-php
 ```
 
 Then run `composer install`
 
 Your project is free to choose the http client of your choice
-Please require packages that will provide http client functionality:
-https://packagist.org/providers/psr/http-client-implementation
-https://packagist.org/providers/php-http/async-client-implementation
+Please require packages that will provide http client functionality:  
+https://packagist.org/providers/psr/http-client-implementation  
+https://packagist.org/providers/php-http/async-client-implementation  
 https://packagist.org/providers/psr/http-factory-implementation
 
 As an example:
@@ -48,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/ShippingClient/vendor/autoload.php');
+require_once('/path/to/ShippingSdk/vendor/autoload.php');
 ```
 
 ## Getting Started
@@ -62,10 +50,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\CarsApi(
+$apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
@@ -142,6 +130,7 @@ Class | Method | HTTP request | Description
 - [StockStatus](docs/Model/StockStatus.md)
 - [VehicleType](docs/Model/VehicleType.md)
 - [Voyage](docs/Model/Voyage.md)
+- [VoyageInfo](docs/Model/VoyageInfo.md)
 - [VoyageStatus](docs/Model/VoyageStatus.md)
 - [VoyagesPaginated](docs/Model/VoyagesPaginated.md)
 - [Webhook](docs/Model/Webhook.md)

@@ -1,4 +1,4 @@
-# Dinas\ShippingClient\WebhooksApi
+# Dinas\ShippingSdk\WebhooksApi
 
 All URIs are relative to https://shipping.dinas.jp.
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 ## `deleteWebhook()`
 
 ```php
-deleteWebhook($id): \Dinas\ShippingClient\Model\ActionResponse
+deleteWebhook($id): \Dinas\ShippingSdk\Model\ActionResponse
 ```
 
 Delete a webhook
@@ -29,10 +29,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\WebhooksApi(
+$apiInstance = new Dinas\ShippingSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\ActionResponse**](../Model/ActionResponse.md)
+[**\Dinas\ShippingSdk\Model\ActionResponse**](../Model/ActionResponse.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 ## `getWebhook()`
 
 ```php
-getWebhook($id): \Dinas\ShippingClient\Model\Webhook
+getWebhook($id): \Dinas\ShippingSdk\Model\Webhook
 ```
 
 Retrieve a specific webhook by ID
@@ -87,10 +87,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\WebhooksApi(
+$apiInstance = new Dinas\ShippingSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\Webhook**](../Model/Webhook.md)
+[**\Dinas\ShippingSdk\Model\Webhook**](../Model/Webhook.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 ## `getWebhooks()`
 
 ```php
-getWebhooks(): \Dinas\ShippingClient\Model\Webhook[]
+getWebhooks(): \Dinas\ShippingSdk\Model\Webhook[]
 ```
 
 Retrieve a list of webhooks
@@ -145,10 +145,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\WebhooksApi(
+$apiInstance = new Dinas\ShippingSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
@@ -169,7 +169,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\Webhook[]**](../Model/Webhook.md)
+[**\Dinas\ShippingSdk\Model\Webhook[]**](../Model/Webhook.md)
 
 ### Authorization
 
@@ -187,7 +187,7 @@ This endpoint does not need any parameter.
 ## `storeWebhook()`
 
 ```php
-storeWebhook($webhook): \Dinas\ShippingClient\Model\Webhook
+storeWebhook($webhook): \Dinas\ShippingSdk\Model\Webhook
 ```
 
 Create a new webhook
@@ -200,16 +200,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\WebhooksApi(
+$apiInstance = new Dinas\ShippingSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
     $config
 );
-$webhook = new \Dinas\ShippingClient\Model\Webhook(); // \Dinas\ShippingClient\Model\Webhook
+$webhook = new \Dinas\ShippingSdk\Model\Webhook(); // \Dinas\ShippingSdk\Model\Webhook
 
 try {
     $result = $apiInstance->storeWebhook($webhook);
@@ -223,11 +223,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook** | [**\Dinas\ShippingClient\Model\Webhook**](../Model/Webhook.md)|  |
+ **webhook** | [**\Dinas\ShippingSdk\Model\Webhook**](../Model/Webhook.md)|  |
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\Webhook**](../Model/Webhook.md)
+[**\Dinas\ShippingSdk\Model\Webhook**](../Model/Webhook.md)
 
 ### Authorization
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 ## `testWebhook()`
 
 ```php
-testWebhook($id): \Dinas\ShippingClient\Model\ActionResponse
+testWebhook($id): \Dinas\ShippingSdk\Model\ActionResponse
 ```
 
 Send a test payload to the webhook to verify it's working
@@ -258,10 +258,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\WebhooksApi(
+$apiInstance = new Dinas\ShippingSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\ActionResponse**](../Model/ActionResponse.md)
+[**\Dinas\ShippingSdk\Model\ActionResponse**](../Model/ActionResponse.md)
 
 ### Authorization
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 ## `toggleWebhook()`
 
 ```php
-toggleWebhook($id): \Dinas\ShippingClient\Model\ActionResponse
+toggleWebhook($id): \Dinas\ShippingSdk\Model\ActionResponse
 ```
 
 Toggle the active status of a webhook
@@ -316,10 +316,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\WebhooksApi(
+$apiInstance = new Dinas\ShippingSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\ActionResponse**](../Model/ActionResponse.md)
+[**\Dinas\ShippingSdk\Model\ActionResponse**](../Model/ActionResponse.md)
 
 ### Authorization
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 ## `updateWebhook()`
 
 ```php
-updateWebhook($id, $webhook): \Dinas\ShippingClient\Model\Webhook
+updateWebhook($id, $webhook): \Dinas\ShippingSdk\Model\Webhook
 ```
 
 Update an existing webhook
@@ -374,17 +374,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\WebhooksApi(
+$apiInstance = new Dinas\ShippingSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
     $config
 );
 $id = 1; // int | Webhook ID
-$webhook = new \Dinas\ShippingClient\Model\Webhook(); // \Dinas\ShippingClient\Model\Webhook
+$webhook = new \Dinas\ShippingSdk\Model\Webhook(); // \Dinas\ShippingSdk\Model\Webhook
 
 try {
     $result = $apiInstance->updateWebhook($id, $webhook);
@@ -399,11 +399,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Webhook ID |
- **webhook** | [**\Dinas\ShippingClient\Model\Webhook**](../Model/Webhook.md)|  |
+ **webhook** | [**\Dinas\ShippingSdk\Model\Webhook**](../Model/Webhook.md)|  |
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\Webhook**](../Model/Webhook.md)
+[**\Dinas\ShippingSdk\Model\Webhook**](../Model/Webhook.md)
 
 ### Authorization
 

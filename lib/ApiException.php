@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient;
+namespace Dinas\ShippingSdk;
 
 use Exception;
 use Http\Client\Exception\RequestException;
@@ -37,7 +37,7 @@ use Psr\Http\Message\ResponseInterface;
  * ApiException Class Doc Comment
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

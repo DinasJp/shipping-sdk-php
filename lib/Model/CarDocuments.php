@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient\Model;
+namespace Dinas\ShippingSdk\Model;
 
 use \ArrayAccess;
-use \Dinas\ShippingClient\ObjectSerializer;
+use \Dinas\ShippingSdk\ObjectSerializer;
 
 /**
  * CarDocuments Class Doc Comment
  *
  * @category Class
  * @description Documents attached to the car
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,12 +59,12 @@ class CarDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'export_certificate' => '\Dinas\ShippingClient\Model\DocumentInfo',
-        'vehicle_invoice' => '\Dinas\ShippingClient\Model\DocumentInfo',
-        'vehicle_catalog' => '\Dinas\ShippingClient\Model\DocumentInfo',
-        'price_confirmation' => '\Dinas\ShippingClient\Model\DocumentInfo',
-        'explanatory_note' => '\Dinas\ShippingClient\Model\DocumentInfo',
-        'repair_estimate' => '\Dinas\ShippingClient\Model\DocumentInfo'
+        'export_certificate' => '\Dinas\ShippingSdk\Model\DocumentInfo',
+        'vehicle_invoice' => '\Dinas\ShippingSdk\Model\DocumentInfo',
+        'vehicle_catalog' => '\Dinas\ShippingSdk\Model\DocumentInfo',
+        'price_confirmation' => '\Dinas\ShippingSdk\Model\DocumentInfo',
+        'explanatory_note' => '\Dinas\ShippingSdk\Model\DocumentInfo',
+        'repair_estimate' => '\Dinas\ShippingSdk\Model\DocumentInfo'
     ];
 
     /**
@@ -329,7 +329,7 @@ class CarDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets export_certificate
      *
-     * @return \Dinas\ShippingClient\Model\DocumentInfo|null
+     * @return \Dinas\ShippingSdk\Model\DocumentInfo|null
      */
     public function getExportCertificate()
     {
@@ -339,7 +339,7 @@ class CarDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets export_certificate
      *
-     * @param \Dinas\ShippingClient\Model\DocumentInfo|null $export_certificate export_certificate
+     * @param \Dinas\ShippingSdk\Model\DocumentInfo|null $export_certificate export_certificate
      *
      * @return self
      */
@@ -363,7 +363,7 @@ class CarDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets vehicle_invoice
      *
-     * @return \Dinas\ShippingClient\Model\DocumentInfo|null
+     * @return \Dinas\ShippingSdk\Model\DocumentInfo|null
      */
     public function getVehicleInvoice()
     {
@@ -373,7 +373,7 @@ class CarDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vehicle_invoice
      *
-     * @param \Dinas\ShippingClient\Model\DocumentInfo|null $vehicle_invoice vehicle_invoice
+     * @param \Dinas\ShippingSdk\Model\DocumentInfo|null $vehicle_invoice vehicle_invoice
      *
      * @return self
      */
@@ -397,7 +397,7 @@ class CarDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets vehicle_catalog
      *
-     * @return \Dinas\ShippingClient\Model\DocumentInfo|null
+     * @return \Dinas\ShippingSdk\Model\DocumentInfo|null
      */
     public function getVehicleCatalog()
     {
@@ -407,7 +407,7 @@ class CarDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vehicle_catalog
      *
-     * @param \Dinas\ShippingClient\Model\DocumentInfo|null $vehicle_catalog vehicle_catalog
+     * @param \Dinas\ShippingSdk\Model\DocumentInfo|null $vehicle_catalog vehicle_catalog
      *
      * @return self
      */
@@ -431,7 +431,7 @@ class CarDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets price_confirmation
      *
-     * @return \Dinas\ShippingClient\Model\DocumentInfo|null
+     * @return \Dinas\ShippingSdk\Model\DocumentInfo|null
      */
     public function getPriceConfirmation()
     {
@@ -441,7 +441,7 @@ class CarDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets price_confirmation
      *
-     * @param \Dinas\ShippingClient\Model\DocumentInfo|null $price_confirmation price_confirmation
+     * @param \Dinas\ShippingSdk\Model\DocumentInfo|null $price_confirmation price_confirmation
      *
      * @return self
      */
@@ -465,7 +465,7 @@ class CarDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets explanatory_note
      *
-     * @return \Dinas\ShippingClient\Model\DocumentInfo|null
+     * @return \Dinas\ShippingSdk\Model\DocumentInfo|null
      */
     public function getExplanatoryNote()
     {
@@ -475,7 +475,7 @@ class CarDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets explanatory_note
      *
-     * @param \Dinas\ShippingClient\Model\DocumentInfo|null $explanatory_note explanatory_note
+     * @param \Dinas\ShippingSdk\Model\DocumentInfo|null $explanatory_note explanatory_note
      *
      * @return self
      */
@@ -499,7 +499,7 @@ class CarDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets repair_estimate
      *
-     * @return \Dinas\ShippingClient\Model\DocumentInfo|null
+     * @return \Dinas\ShippingSdk\Model\DocumentInfo|null
      */
     public function getRepairEstimate()
     {
@@ -509,7 +509,7 @@ class CarDocuments implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets repair_estimate
      *
-     * @param \Dinas\ShippingClient\Model\DocumentInfo|null $repair_estimate repair_estimate
+     * @param \Dinas\ShippingSdk\Model\DocumentInfo|null $repair_estimate repair_estimate
      *
      * @return self
      */

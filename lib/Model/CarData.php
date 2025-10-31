@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient\Model;
+namespace Dinas\ShippingSdk\Model;
 
 use \ArrayAccess;
-use \Dinas\ShippingClient\ObjectSerializer;
+use \Dinas\ShippingSdk\ObjectSerializer;
 
 /**
  * CarData Class Doc Comment
  *
  * @category Class
  * @description Create/Update car payload
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -65,10 +65,10 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => 'string',
         'year' => 'int',
         'color' => 'string',
-        'export_type' => '\Dinas\ShippingClient\Model\ExportType',
-        'export_method' => '\Dinas\ShippingClient\Model\ExportMethod',
-        'vehicle_type' => '\Dinas\ShippingClient\Model\VehicleType',
-        'fuel' => '\Dinas\ShippingClient\Model\FuelType',
+        'export_type' => '\Dinas\ShippingSdk\Model\ExportType',
+        'export_method' => '\Dinas\ShippingSdk\Model\ExportMethod',
+        'vehicle_type' => '\Dinas\ShippingSdk\Model\VehicleType',
+        'fuel' => '\Dinas\ShippingSdk\Model\FuelType',
         'engine_model' => 'string',
         'engine_number' => 'string',
         'engine_size' => 'float',
@@ -80,14 +80,14 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
         'length' => 'float',
         'width' => 'float',
         'height' => 'float',
-        'price_terms' => '\Dinas\ShippingClient\Model\PriceTerms',
+        'price_terms' => '\Dinas\ShippingSdk\Model\PriceTerms',
         'unit_price' => 'float',
         'purchase_date' => '\DateTime',
         'damaged' => 'bool',
-        'ship_date_limit' => '\Dinas\ShippingClient\Model\ShipDateLimit',
+        'ship_date_limit' => '\Dinas\ShippingSdk\Model\ShipDateLimit',
         'withhold' => 'string',
         'note' => 'string',
-        'dealer' => '\Dinas\ShippingClient\Model\Dealer',
+        'dealer' => '\Dinas\ShippingSdk\Model\Dealer',
         'pol' => 'string',
         'hold' => 'bool'
     ];
@@ -162,7 +162,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
         'height' => true,
         'price_terms' => false,
         'unit_price' => true,
-        'purchase_date' => true,
+        'purchase_date' => false,
         'damaged' => true,
         'ship_date_limit' => false,
         'withhold' => true,
@@ -497,17 +497,11 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'chassis', the character length must be bigger than or equal to 4.";
         }
 
-        if ($this->container['make'] === null) {
-            $invalidProperties[] = "'make' can't be null";
-        }
-        if ((mb_strlen($this->container['make']) > 50)) {
+        if (!is_null($this->container['make']) && (mb_strlen($this->container['make']) > 50)) {
             $invalidProperties[] = "invalid value for 'make', the character length must be smaller than or equal to 50.";
         }
 
-        if ($this->container['model'] === null) {
-            $invalidProperties[] = "'model' can't be null";
-        }
-        if ((mb_strlen($this->container['model']) > 50)) {
+        if (!is_null($this->container['model']) && (mb_strlen($this->container['model']) > 50)) {
             $invalidProperties[] = "invalid value for 'model', the character length must be smaller than or equal to 50.";
         }
 
@@ -571,9 +565,6 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'unit_price', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['purchase_date'] === null) {
-            $invalidProperties[] = "'purchase_date' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -653,7 +644,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets make
      *
-     * @return string
+     * @return string|null
      */
     public function getMake()
     {
@@ -663,7 +654,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets make
      *
-     * @param string $make Car manufacturer
+     * @param string|null $make Car manufacturer **Required for creation**
      *
      * @return self
      */
@@ -684,7 +675,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets model
      *
-     * @return string
+     * @return string|null
      */
     public function getModel()
     {
@@ -694,7 +685,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets model
      *
-     * @param string $model Car model
+     * @param string|null $model Car model **Required for creation**
      *
      * @return self
      */
@@ -792,7 +783,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets export_type
      *
-     * @return \Dinas\ShippingClient\Model\ExportType|null
+     * @return \Dinas\ShippingSdk\Model\ExportType|null
      */
     public function getExportType()
     {
@@ -802,7 +793,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets export_type
      *
-     * @param \Dinas\ShippingClient\Model\ExportType|null $export_type export_type
+     * @param \Dinas\ShippingSdk\Model\ExportType|null $export_type export_type
      *
      * @return self
      */
@@ -819,7 +810,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets export_method
      *
-     * @return \Dinas\ShippingClient\Model\ExportMethod|null
+     * @return \Dinas\ShippingSdk\Model\ExportMethod|null
      */
     public function getExportMethod()
     {
@@ -829,7 +820,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets export_method
      *
-     * @param \Dinas\ShippingClient\Model\ExportMethod|null $export_method export_method
+     * @param \Dinas\ShippingSdk\Model\ExportMethod|null $export_method export_method
      *
      * @return self
      */
@@ -846,7 +837,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets vehicle_type
      *
-     * @return \Dinas\ShippingClient\Model\VehicleType|null
+     * @return \Dinas\ShippingSdk\Model\VehicleType|null
      */
     public function getVehicleType()
     {
@@ -856,7 +847,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vehicle_type
      *
-     * @param \Dinas\ShippingClient\Model\VehicleType|null $vehicle_type vehicle_type
+     * @param \Dinas\ShippingSdk\Model\VehicleType|null $vehicle_type vehicle_type
      *
      * @return self
      */
@@ -873,7 +864,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets fuel
      *
-     * @return \Dinas\ShippingClient\Model\FuelType|null
+     * @return \Dinas\ShippingSdk\Model\FuelType|null
      */
     public function getFuel()
     {
@@ -883,7 +874,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fuel
      *
-     * @param \Dinas\ShippingClient\Model\FuelType|null $fuel fuel
+     * @param \Dinas\ShippingSdk\Model\FuelType|null $fuel fuel
      *
      * @return self
      */
@@ -1330,7 +1321,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets price_terms
      *
-     * @return \Dinas\ShippingClient\Model\PriceTerms|null
+     * @return \Dinas\ShippingSdk\Model\PriceTerms|null
      */
     public function getPriceTerms()
     {
@@ -1340,7 +1331,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets price_terms
      *
-     * @param \Dinas\ShippingClient\Model\PriceTerms|null $price_terms price_terms
+     * @param \Dinas\ShippingSdk\Model\PriceTerms|null $price_terms price_terms
      *
      * @return self
      */
@@ -1396,7 +1387,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets purchase_date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getPurchaseDate()
     {
@@ -1406,21 +1397,14 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets purchase_date
      *
-     * @param \DateTime $purchase_date Purchase date
+     * @param \DateTime|null $purchase_date Purchase date **Required for creation**
      *
      * @return self
      */
     public function setPurchaseDate($purchase_date)
     {
         if (is_null($purchase_date)) {
-            array_push($this->openAPINullablesSetToNull, 'purchase_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('purchase_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable purchase_date cannot be null');
         }
         $this->container['purchase_date'] = $purchase_date;
 
@@ -1464,7 +1448,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets ship_date_limit
      *
-     * @return \Dinas\ShippingClient\Model\ShipDateLimit|null
+     * @return \Dinas\ShippingSdk\Model\ShipDateLimit|null
      */
     public function getShipDateLimit()
     {
@@ -1474,7 +1458,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ship_date_limit
      *
-     * @param \Dinas\ShippingClient\Model\ShipDateLimit|null $ship_date_limit ship_date_limit
+     * @param \Dinas\ShippingSdk\Model\ShipDateLimit|null $ship_date_limit ship_date_limit
      *
      * @return self
      */
@@ -1559,7 +1543,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets dealer
      *
-     * @return \Dinas\ShippingClient\Model\Dealer|null
+     * @return \Dinas\ShippingSdk\Model\Dealer|null
      */
     public function getDealer()
     {
@@ -1569,7 +1553,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dealer
      *
-     * @param \Dinas\ShippingClient\Model\Dealer|null $dealer dealer
+     * @param \Dinas\ShippingSdk\Model\Dealer|null $dealer dealer
      *
      * @return self
      */

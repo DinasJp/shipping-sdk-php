@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient\Model;
+namespace Dinas\ShippingSdk\Model;
 
 use \ArrayAccess;
-use \Dinas\ShippingClient\ObjectSerializer;
+use \Dinas\ShippingSdk\ObjectSerializer;
 
 /**
  * Voyage Class Doc Comment
  *
  * @category Class
  * @description Voyage resource
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class Voyage implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'status' => '\Dinas\ShippingClient\Model\VoyageStatus',
+        'status' => '\Dinas\ShippingSdk\Model\VoyageStatus',
         'number' => 'string',
         'vessel' => 'string',
         'cut_date' => '\DateTime',
@@ -426,7 +426,7 @@ class Voyage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return \Dinas\ShippingClient\Model\VoyageStatus|null
+     * @return \Dinas\ShippingSdk\Model\VoyageStatus|null
      */
     public function getStatus()
     {
@@ -436,7 +436,7 @@ class Voyage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param \Dinas\ShippingClient\Model\VoyageStatus|null $status status
+     * @param \Dinas\ShippingSdk\Model\VoyageStatus|null $status status
      *
      * @return self
      */

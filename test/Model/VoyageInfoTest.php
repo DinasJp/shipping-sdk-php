@@ -1,6 +1,6 @@
 <?php
 /**
- * StockStatusTest
+ * VoyageInfoTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace Dinas\ShippingSdk\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * StockStatusTest Class Doc Comment
+ * VoyageInfoTest Class Doc Comment
  *
  * @category    Class
- * @description StockStatus
+ * @description Basic voyage info
  * @package     Dinas\ShippingSdk
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class StockStatusTest extends TestCase
+class VoyageInfoTest extends TestCase
 {
 
     /**
@@ -72,9 +72,36 @@ class StockStatusTest extends TestCase
     }
 
     /**
-     * Test "StockStatus"
+     * Test "VoyageInfo"
      */
-    public function testStockStatus()
+    public function testVoyageInfo()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "number"
+     */
+    public function testPropertyNumber()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

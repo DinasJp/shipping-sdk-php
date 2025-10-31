@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient\Model;
+namespace Dinas\ShippingSdk\Model;
 
 use \ArrayAccess;
-use \Dinas\ShippingClient\ObjectSerializer;
+use \Dinas\ShippingSdk\ObjectSerializer;
 
 /**
  * CarsPaginated Class Doc Comment
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Dinas\ShippingClient\Model\CarModel[]',
-        'links' => '\Dinas\ShippingClient\Model\PaginationLinks',
-        'meta' => '\Dinas\ShippingClient\Model\PaginationMeta'
+        'data' => '\Dinas\ShippingSdk\Model\CarModel[]',
+        'links' => '\Dinas\ShippingSdk\Model\PaginationLinks',
+        'meta' => '\Dinas\ShippingSdk\Model\PaginationMeta'
     ];
 
     /**
@@ -307,7 +307,7 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \Dinas\ShippingClient\Model\CarModel[]|null
+     * @return \Dinas\ShippingSdk\Model\CarModel[]|null
      */
     public function getData()
     {
@@ -317,7 +317,7 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \Dinas\ShippingClient\Model\CarModel[]|null $data data
+     * @param \Dinas\ShippingSdk\Model\CarModel[]|null $data data
      *
      * @return self
      */
@@ -334,7 +334,7 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets links
      *
-     * @return \Dinas\ShippingClient\Model\PaginationLinks|null
+     * @return \Dinas\ShippingSdk\Model\PaginationLinks|null
      */
     public function getLinks()
     {
@@ -344,7 +344,7 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets links
      *
-     * @param \Dinas\ShippingClient\Model\PaginationLinks|null $links links
+     * @param \Dinas\ShippingSdk\Model\PaginationLinks|null $links links
      *
      * @return self
      */
@@ -361,7 +361,7 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets meta
      *
-     * @return \Dinas\ShippingClient\Model\PaginationMeta|null
+     * @return \Dinas\ShippingSdk\Model\PaginationMeta|null
      */
     public function getMeta()
     {
@@ -371,7 +371,7 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets meta
      *
-     * @param \Dinas\ShippingClient\Model\PaginationMeta|null $meta meta
+     * @param \Dinas\ShippingSdk\Model\PaginationMeta|null $meta meta
      *
      * @return self
      */

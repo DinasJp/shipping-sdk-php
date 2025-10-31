@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient\Api;
+namespace Dinas\ShippingSdk\Api;
 
 use GuzzleHttp\Psr7\MultipartStream;
 use Http\Client\Common\Plugin\ErrorPlugin;
@@ -40,12 +40,12 @@ use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\Psr18ClientDiscovery;
 use Http\Message\RequestFactory;
 use Http\Promise\Promise;
-use Dinas\ShippingClient\ApiException;
-use Dinas\ShippingClient\Configuration;
-use Dinas\ShippingClient\DebugPlugin;
-use Dinas\ShippingClient\HeaderSelector;
-use Dinas\ShippingClient\FormDataProcessor;
-use Dinas\ShippingClient\ObjectSerializer;
+use Dinas\ShippingSdk\ApiException;
+use Dinas\ShippingSdk\Configuration;
+use Dinas\ShippingSdk\DebugPlugin;
+use Dinas\ShippingSdk\HeaderSelector;
+use Dinas\ShippingSdk\FormDataProcessor;
+use Dinas\ShippingSdk\ObjectSerializer;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
@@ -60,7 +60,7 @@ use function sprintf;
  * CarsApi Class Doc Comment
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -190,9 +190,9 @@ class CarsApi
      * @param  int $per_page Number of items per page. **default: 100** (optional)
      * @param  int $page Page number. **default: 1** (optional)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\AlbumsPaginated
+     * @return \Dinas\ShippingSdk\Model\AlbumsPaginated
      */
     public function getCarPhotos($status = null, $chassis = null, $search = null, $voyage = null, $photos = null, $on_yard = null, $sort = null, $per_page = null, $page = null)
     {
@@ -215,9 +215,9 @@ class CarsApi
      * @param  int $per_page Number of items per page. **default: 100** (optional)
      * @param  int $page Page number. **default: 1** (optional)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\AlbumsPaginated, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\AlbumsPaginated, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCarPhotosWithHttpInfo($status = null, $chassis = null, $search = null, $voyage = null, $photos = null, $on_yard = null, $sort = null, $per_page = null, $page = null)
     {
@@ -253,7 +253,7 @@ class CarsApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\AlbumsPaginated',
+                        '\Dinas\ShippingSdk\Model\AlbumsPaginated',
                         $request,
                         $response,
                     );
@@ -274,7 +274,7 @@ class CarsApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\AlbumsPaginated',
+                '\Dinas\ShippingSdk\Model\AlbumsPaginated',
                 $request,
                 $response,
             );
@@ -283,7 +283,7 @@ class CarsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\AlbumsPaginated',
+                        '\Dinas\ShippingSdk\Model\AlbumsPaginated',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -343,7 +343,7 @@ class CarsApi
      */
     public function getCarPhotosAsyncWithHttpInfo($status = null, $chassis = null, $search = null, $voyage = null, $photos = null, $on_yard = null, $sort = null, $per_page = null, $page = null)
     {
-        $returnType = '\Dinas\ShippingClient\Model\AlbumsPaginated';
+        $returnType = '\Dinas\ShippingSdk\Model\AlbumsPaginated';
         $request = $this->getCarPhotosRequest($status, $chassis, $search, $voyage, $photos, $on_yard, $sort, $per_page, $page);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
@@ -591,9 +591,9 @@ class CarsApi
      * @param  int $per_page Number of items per page. **default: 100** (optional)
      * @param  int $page Page number. **default: 1** (optional)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\CarsPaginated
+     * @return \Dinas\ShippingSdk\Model\CarsPaginated
      */
     public function getCars($status = null, $chassis = null, $search = null, $voyage = null, $vehicle_state = null, $vehicle_type = null, $photos = null, $docs = null, $on_yard = null, $price_terms = null, $sort = null, $per_page = null, $page = null)
     {
@@ -620,9 +620,9 @@ class CarsApi
      * @param  int $per_page Number of items per page. **default: 100** (optional)
      * @param  int $page Page number. **default: 1** (optional)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\CarsPaginated, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\CarsPaginated, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCarsWithHttpInfo($status = null, $chassis = null, $search = null, $voyage = null, $vehicle_state = null, $vehicle_type = null, $photos = null, $docs = null, $on_yard = null, $price_terms = null, $sort = null, $per_page = null, $page = null)
     {
@@ -658,7 +658,7 @@ class CarsApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\CarsPaginated',
+                        '\Dinas\ShippingSdk\Model\CarsPaginated',
                         $request,
                         $response,
                     );
@@ -679,7 +679,7 @@ class CarsApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\CarsPaginated',
+                '\Dinas\ShippingSdk\Model\CarsPaginated',
                 $request,
                 $response,
             );
@@ -688,7 +688,7 @@ class CarsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\CarsPaginated',
+                        '\Dinas\ShippingSdk\Model\CarsPaginated',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -756,7 +756,7 @@ class CarsApi
      */
     public function getCarsAsyncWithHttpInfo($status = null, $chassis = null, $search = null, $voyage = null, $vehicle_state = null, $vehicle_type = null, $photos = null, $docs = null, $on_yard = null, $price_terms = null, $sort = null, $per_page = null, $page = null)
     {
-        $returnType = '\Dinas\ShippingClient\Model\CarsPaginated';
+        $returnType = '\Dinas\ShippingSdk\Model\CarsPaginated';
         $request = $this->getCarsRequest($status, $chassis, $search, $voyage, $vehicle_state, $vehicle_type, $photos, $docs, $on_yard, $price_terms, $sort, $per_page, $page);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
@@ -1038,11 +1038,11 @@ class CarsApi
      *
      * Store car documents
      *
-     * @param  \Dinas\ShippingClient\Model\DocumentData[] $items items (required)
+     * @param  \Dinas\ShippingSdk\Model\DocumentData[] $items items (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\ActionResponse
+     * @return \Dinas\ShippingSdk\Model\ActionResponse
      */
     public function storeCarDocuments($items)
     {
@@ -1055,11 +1055,11 @@ class CarsApi
      *
      * Store car documents
      *
-     * @param  \Dinas\ShippingClient\Model\DocumentData[] $items (required)
+     * @param  \Dinas\ShippingSdk\Model\DocumentData[] $items (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\ActionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\ActionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function storeCarDocumentsWithHttpInfo($items)
     {
@@ -1095,7 +1095,7 @@ class CarsApi
             switch($statusCode) {
                 case 202:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $request,
                         $response,
                     );
@@ -1116,7 +1116,7 @@ class CarsApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\ActionResponse',
+                '\Dinas\ShippingSdk\Model\ActionResponse',
                 $request,
                 $response,
             );
@@ -1125,7 +1125,7 @@ class CarsApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1142,7 +1142,7 @@ class CarsApi
      *
      * Store car documents
      *
-     * @param  \Dinas\ShippingClient\Model\DocumentData[] $items (required)
+     * @param  \Dinas\ShippingSdk\Model\DocumentData[] $items (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
@@ -1162,14 +1162,14 @@ class CarsApi
      *
      * Store car documents
      *
-     * @param  \Dinas\ShippingClient\Model\DocumentData[] $items (required)
+     * @param  \Dinas\ShippingSdk\Model\DocumentData[] $items (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
     public function storeCarDocumentsAsyncWithHttpInfo($items)
     {
-        $returnType = '\Dinas\ShippingClient\Model\ActionResponse';
+        $returnType = '\Dinas\ShippingSdk\Model\ActionResponse';
         $request = $this->storeCarDocumentsRequest($items);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
@@ -1207,7 +1207,7 @@ class CarsApi
     /**
      * Create request for operation 'storeCarDocuments'
      *
-     * @param  \Dinas\ShippingClient\Model\DocumentData[] $items (required)
+     * @param  \Dinas\ShippingSdk\Model\DocumentData[] $items (required)
      *
      * @throws \InvalidArgumentException
      * @return RequestInterface
@@ -1304,11 +1304,11 @@ class CarsApi
      *
      * Store car photos
      *
-     * @param  \Dinas\ShippingClient\Model\AlbumData[] $items items (required)
+     * @param  \Dinas\ShippingSdk\Model\AlbumData[] $items items (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\ActionResponse
+     * @return \Dinas\ShippingSdk\Model\ActionResponse
      */
     public function storeCarPhotos($items)
     {
@@ -1321,11 +1321,11 @@ class CarsApi
      *
      * Store car photos
      *
-     * @param  \Dinas\ShippingClient\Model\AlbumData[] $items (required)
+     * @param  \Dinas\ShippingSdk\Model\AlbumData[] $items (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\ActionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\ActionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function storeCarPhotosWithHttpInfo($items)
     {
@@ -1361,7 +1361,7 @@ class CarsApi
             switch($statusCode) {
                 case 202:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $request,
                         $response,
                     );
@@ -1382,7 +1382,7 @@ class CarsApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\ActionResponse',
+                '\Dinas\ShippingSdk\Model\ActionResponse',
                 $request,
                 $response,
             );
@@ -1391,7 +1391,7 @@ class CarsApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1408,7 +1408,7 @@ class CarsApi
      *
      * Store car photos
      *
-     * @param  \Dinas\ShippingClient\Model\AlbumData[] $items (required)
+     * @param  \Dinas\ShippingSdk\Model\AlbumData[] $items (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
@@ -1428,14 +1428,14 @@ class CarsApi
      *
      * Store car photos
      *
-     * @param  \Dinas\ShippingClient\Model\AlbumData[] $items (required)
+     * @param  \Dinas\ShippingSdk\Model\AlbumData[] $items (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
     public function storeCarPhotosAsyncWithHttpInfo($items)
     {
-        $returnType = '\Dinas\ShippingClient\Model\ActionResponse';
+        $returnType = '\Dinas\ShippingSdk\Model\ActionResponse';
         $request = $this->storeCarPhotosRequest($items);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
@@ -1473,7 +1473,7 @@ class CarsApi
     /**
      * Create request for operation 'storeCarPhotos'
      *
-     * @param  \Dinas\ShippingClient\Model\AlbumData[] $items (required)
+     * @param  \Dinas\ShippingSdk\Model\AlbumData[] $items (required)
      *
      * @throws \InvalidArgumentException
      * @return RequestInterface
@@ -1570,11 +1570,11 @@ class CarsApi
      *
      * Create or update cars
      *
-     * @param  \Dinas\ShippingClient\Model\CarData[] $car_data car_data (required)
+     * @param  \Dinas\ShippingSdk\Model\CarData[] $car_data car_data (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\CarSyncResponse
+     * @return \Dinas\ShippingSdk\Model\CarSyncResponse
      */
     public function syncCars($car_data)
     {
@@ -1587,11 +1587,11 @@ class CarsApi
      *
      * Create or update cars
      *
-     * @param  \Dinas\ShippingClient\Model\CarData[] $car_data (required)
+     * @param  \Dinas\ShippingSdk\Model\CarData[] $car_data (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\CarSyncResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\CarSyncResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function syncCarsWithHttpInfo($car_data)
     {
@@ -1627,7 +1627,7 @@ class CarsApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\CarSyncResponse',
+                        '\Dinas\ShippingSdk\Model\CarSyncResponse',
                         $request,
                         $response,
                     );
@@ -1648,7 +1648,7 @@ class CarsApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\CarSyncResponse',
+                '\Dinas\ShippingSdk\Model\CarSyncResponse',
                 $request,
                 $response,
             );
@@ -1657,7 +1657,7 @@ class CarsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\CarSyncResponse',
+                        '\Dinas\ShippingSdk\Model\CarSyncResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1674,7 +1674,7 @@ class CarsApi
      *
      * Create or update cars
      *
-     * @param  \Dinas\ShippingClient\Model\CarData[] $car_data (required)
+     * @param  \Dinas\ShippingSdk\Model\CarData[] $car_data (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
@@ -1694,14 +1694,14 @@ class CarsApi
      *
      * Create or update cars
      *
-     * @param  \Dinas\ShippingClient\Model\CarData[] $car_data (required)
+     * @param  \Dinas\ShippingSdk\Model\CarData[] $car_data (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
     public function syncCarsAsyncWithHttpInfo($car_data)
     {
-        $returnType = '\Dinas\ShippingClient\Model\CarSyncResponse';
+        $returnType = '\Dinas\ShippingSdk\Model\CarSyncResponse';
         $request = $this->syncCarsRequest($car_data);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
@@ -1739,7 +1739,7 @@ class CarsApi
     /**
      * Create request for operation 'syncCars'
      *
-     * @param  \Dinas\ShippingClient\Model\CarData[] $car_data (required)
+     * @param  \Dinas\ShippingSdk\Model\CarData[] $car_data (required)
      *
      * @throws \InvalidArgumentException
      * @return RequestInterface

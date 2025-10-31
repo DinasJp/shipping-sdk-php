@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient\Api;
+namespace Dinas\ShippingSdk\Api;
 
 use GuzzleHttp\Psr7\MultipartStream;
 use Http\Client\Common\Plugin\ErrorPlugin;
@@ -40,12 +40,12 @@ use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\Psr18ClientDiscovery;
 use Http\Message\RequestFactory;
 use Http\Promise\Promise;
-use Dinas\ShippingClient\ApiException;
-use Dinas\ShippingClient\Configuration;
-use Dinas\ShippingClient\DebugPlugin;
-use Dinas\ShippingClient\HeaderSelector;
-use Dinas\ShippingClient\FormDataProcessor;
-use Dinas\ShippingClient\ObjectSerializer;
+use Dinas\ShippingSdk\ApiException;
+use Dinas\ShippingSdk\Configuration;
+use Dinas\ShippingSdk\DebugPlugin;
+use Dinas\ShippingSdk\HeaderSelector;
+use Dinas\ShippingSdk\FormDataProcessor;
+use Dinas\ShippingSdk\ObjectSerializer;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
@@ -60,7 +60,7 @@ use function sprintf;
  * WebhooksApi Class Doc Comment
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -182,9 +182,9 @@ class WebhooksApi
      *
      * @param  int $id Webhook ID (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\ActionResponse
+     * @return \Dinas\ShippingSdk\Model\ActionResponse
      */
     public function deleteWebhook($id)
     {
@@ -199,9 +199,9 @@ class WebhooksApi
      *
      * @param  int $id Webhook ID (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\ActionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\ActionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteWebhookWithHttpInfo($id)
     {
@@ -237,7 +237,7 @@ class WebhooksApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $request,
                         $response,
                     );
@@ -258,7 +258,7 @@ class WebhooksApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\ActionResponse',
+                '\Dinas\ShippingSdk\Model\ActionResponse',
                 $request,
                 $response,
             );
@@ -267,7 +267,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -311,7 +311,7 @@ class WebhooksApi
      */
     public function deleteWebhookAsyncWithHttpInfo($id)
     {
-        $returnType = '\Dinas\ShippingClient\Model\ActionResponse';
+        $returnType = '\Dinas\ShippingSdk\Model\ActionResponse';
         $request = $this->deleteWebhookRequest($id);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
@@ -443,9 +443,9 @@ class WebhooksApi
      *
      * @param  int $id Webhook ID (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\Webhook
+     * @return \Dinas\ShippingSdk\Model\Webhook
      */
     public function getWebhook($id)
     {
@@ -460,9 +460,9 @@ class WebhooksApi
      *
      * @param  int $id Webhook ID (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\Webhook, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\Webhook, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWebhookWithHttpInfo($id)
     {
@@ -498,7 +498,7 @@ class WebhooksApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\Webhook',
+                        '\Dinas\ShippingSdk\Model\Webhook',
                         $request,
                         $response,
                     );
@@ -519,7 +519,7 @@ class WebhooksApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\Webhook',
+                '\Dinas\ShippingSdk\Model\Webhook',
                 $request,
                 $response,
             );
@@ -528,7 +528,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\Webhook',
+                        '\Dinas\ShippingSdk\Model\Webhook',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -572,7 +572,7 @@ class WebhooksApi
      */
     public function getWebhookAsyncWithHttpInfo($id)
     {
-        $returnType = '\Dinas\ShippingClient\Model\Webhook';
+        $returnType = '\Dinas\ShippingSdk\Model\Webhook';
         $request = $this->getWebhookRequest($id);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
@@ -703,9 +703,9 @@ class WebhooksApi
      * Retrieve a list of webhooks
      *
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\Webhook[]
+     * @return \Dinas\ShippingSdk\Model\Webhook[]
      */
     public function getWebhooks()
     {
@@ -719,9 +719,9 @@ class WebhooksApi
      * Retrieve a list of webhooks
      *
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\Webhook[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\Webhook[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getWebhooksWithHttpInfo()
     {
@@ -757,7 +757,7 @@ class WebhooksApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\Webhook[]',
+                        '\Dinas\ShippingSdk\Model\Webhook[]',
                         $request,
                         $response,
                     );
@@ -778,7 +778,7 @@ class WebhooksApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\Webhook[]',
+                '\Dinas\ShippingSdk\Model\Webhook[]',
                 $request,
                 $response,
             );
@@ -787,7 +787,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\Webhook[]',
+                        '\Dinas\ShippingSdk\Model\Webhook[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -829,7 +829,7 @@ class WebhooksApi
      */
     public function getWebhooksAsyncWithHttpInfo()
     {
-        $returnType = '\Dinas\ShippingClient\Model\Webhook[]';
+        $returnType = '\Dinas\ShippingSdk\Model\Webhook[]';
         $request = $this->getWebhooksRequest();
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
@@ -944,11 +944,11 @@ class WebhooksApi
      *
      * Create a new webhook
      *
-     * @param  \Dinas\ShippingClient\Model\Webhook $webhook webhook (required)
+     * @param  \Dinas\ShippingSdk\Model\Webhook $webhook webhook (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\Webhook
+     * @return \Dinas\ShippingSdk\Model\Webhook
      */
     public function storeWebhook($webhook)
     {
@@ -961,11 +961,11 @@ class WebhooksApi
      *
      * Create a new webhook
      *
-     * @param  \Dinas\ShippingClient\Model\Webhook $webhook (required)
+     * @param  \Dinas\ShippingSdk\Model\Webhook $webhook (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\Webhook, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\Webhook, HTTP status code, HTTP response headers (array of strings)
      */
     public function storeWebhookWithHttpInfo($webhook)
     {
@@ -1001,7 +1001,7 @@ class WebhooksApi
             switch($statusCode) {
                 case 201:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\Webhook',
+                        '\Dinas\ShippingSdk\Model\Webhook',
                         $request,
                         $response,
                     );
@@ -1022,7 +1022,7 @@ class WebhooksApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\Webhook',
+                '\Dinas\ShippingSdk\Model\Webhook',
                 $request,
                 $response,
             );
@@ -1031,7 +1031,7 @@ class WebhooksApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\Webhook',
+                        '\Dinas\ShippingSdk\Model\Webhook',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1048,7 +1048,7 @@ class WebhooksApi
      *
      * Create a new webhook
      *
-     * @param  \Dinas\ShippingClient\Model\Webhook $webhook (required)
+     * @param  \Dinas\ShippingSdk\Model\Webhook $webhook (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
@@ -1068,14 +1068,14 @@ class WebhooksApi
      *
      * Create a new webhook
      *
-     * @param  \Dinas\ShippingClient\Model\Webhook $webhook (required)
+     * @param  \Dinas\ShippingSdk\Model\Webhook $webhook (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
     public function storeWebhookAsyncWithHttpInfo($webhook)
     {
-        $returnType = '\Dinas\ShippingClient\Model\Webhook';
+        $returnType = '\Dinas\ShippingSdk\Model\Webhook';
         $request = $this->storeWebhookRequest($webhook);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
@@ -1113,7 +1113,7 @@ class WebhooksApi
     /**
      * Create request for operation 'storeWebhook'
      *
-     * @param  \Dinas\ShippingClient\Model\Webhook $webhook (required)
+     * @param  \Dinas\ShippingSdk\Model\Webhook $webhook (required)
      *
      * @throws \InvalidArgumentException
      * @return RequestInterface
@@ -1205,9 +1205,9 @@ class WebhooksApi
      *
      * @param  int $id Webhook ID (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\ActionResponse|\Dinas\ShippingClient\Model\ActionResponse|\Dinas\ShippingClient\Model\ActionResponse
+     * @return \Dinas\ShippingSdk\Model\ActionResponse|\Dinas\ShippingSdk\Model\ActionResponse|\Dinas\ShippingSdk\Model\ActionResponse
      */
     public function testWebhook($id)
     {
@@ -1222,9 +1222,9 @@ class WebhooksApi
      *
      * @param  int $id Webhook ID (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\ActionResponse|\Dinas\ShippingClient\Model\ActionResponse|\Dinas\ShippingClient\Model\ActionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\ActionResponse|\Dinas\ShippingSdk\Model\ActionResponse|\Dinas\ShippingSdk\Model\ActionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function testWebhookWithHttpInfo($id)
     {
@@ -1260,19 +1260,19 @@ class WebhooksApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $request,
                         $response,
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $request,
                         $response,
                     );
                 case 500:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $request,
                         $response,
                     );
@@ -1293,7 +1293,7 @@ class WebhooksApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\ActionResponse',
+                '\Dinas\ShippingSdk\Model\ActionResponse',
                 $request,
                 $response,
             );
@@ -1302,7 +1302,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1310,7 +1310,7 @@ class WebhooksApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1318,7 +1318,7 @@ class WebhooksApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1362,7 +1362,7 @@ class WebhooksApi
      */
     public function testWebhookAsyncWithHttpInfo($id)
     {
-        $returnType = '\Dinas\ShippingClient\Model\ActionResponse';
+        $returnType = '\Dinas\ShippingSdk\Model\ActionResponse';
         $request = $this->testWebhookRequest($id);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
@@ -1494,9 +1494,9 @@ class WebhooksApi
      *
      * @param  int $id Webhook ID (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\ActionResponse
+     * @return \Dinas\ShippingSdk\Model\ActionResponse
      */
     public function toggleWebhook($id)
     {
@@ -1511,9 +1511,9 @@ class WebhooksApi
      *
      * @param  int $id Webhook ID (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\ActionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\ActionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function toggleWebhookWithHttpInfo($id)
     {
@@ -1549,7 +1549,7 @@ class WebhooksApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $request,
                         $response,
                     );
@@ -1570,7 +1570,7 @@ class WebhooksApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\ActionResponse',
+                '\Dinas\ShippingSdk\Model\ActionResponse',
                 $request,
                 $response,
             );
@@ -1579,7 +1579,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\ActionResponse',
+                        '\Dinas\ShippingSdk\Model\ActionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1623,7 +1623,7 @@ class WebhooksApi
      */
     public function toggleWebhookAsyncWithHttpInfo($id)
     {
-        $returnType = '\Dinas\ShippingClient\Model\ActionResponse';
+        $returnType = '\Dinas\ShippingSdk\Model\ActionResponse';
         $request = $this->toggleWebhookRequest($id);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
@@ -1754,11 +1754,11 @@ class WebhooksApi
      * Update an existing webhook
      *
      * @param  int $id Webhook ID (required)
-     * @param  \Dinas\ShippingClient\Model\Webhook $webhook webhook (required)
+     * @param  \Dinas\ShippingSdk\Model\Webhook $webhook webhook (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Dinas\ShippingClient\Model\Webhook
+     * @return \Dinas\ShippingSdk\Model\Webhook
      */
     public function updateWebhook($id, $webhook)
     {
@@ -1772,11 +1772,11 @@ class WebhooksApi
      * Update an existing webhook
      *
      * @param  int $id Webhook ID (required)
-     * @param  \Dinas\ShippingClient\Model\Webhook $webhook (required)
+     * @param  \Dinas\ShippingSdk\Model\Webhook $webhook (required)
      *
-     * @throws \Dinas\ShippingClient\ApiException on non-2xx response
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Dinas\ShippingClient\Model\Webhook, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Dinas\ShippingSdk\Model\Webhook, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateWebhookWithHttpInfo($id, $webhook)
     {
@@ -1812,7 +1812,7 @@ class WebhooksApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Dinas\ShippingClient\Model\Webhook',
+                        '\Dinas\ShippingSdk\Model\Webhook',
                         $request,
                         $response,
                     );
@@ -1833,7 +1833,7 @@ class WebhooksApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Dinas\ShippingClient\Model\Webhook',
+                '\Dinas\ShippingSdk\Model\Webhook',
                 $request,
                 $response,
             );
@@ -1842,7 +1842,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Dinas\ShippingClient\Model\Webhook',
+                        '\Dinas\ShippingSdk\Model\Webhook',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1860,7 +1860,7 @@ class WebhooksApi
      * Update an existing webhook
      *
      * @param  int $id Webhook ID (required)
-     * @param  \Dinas\ShippingClient\Model\Webhook $webhook (required)
+     * @param  \Dinas\ShippingSdk\Model\Webhook $webhook (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
@@ -1881,14 +1881,14 @@ class WebhooksApi
      * Update an existing webhook
      *
      * @param  int $id Webhook ID (required)
-     * @param  \Dinas\ShippingClient\Model\Webhook $webhook (required)
+     * @param  \Dinas\ShippingSdk\Model\Webhook $webhook (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
     public function updateWebhookAsyncWithHttpInfo($id, $webhook)
     {
-        $returnType = '\Dinas\ShippingClient\Model\Webhook';
+        $returnType = '\Dinas\ShippingSdk\Model\Webhook';
         $request = $this->updateWebhookRequest($id, $webhook);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
@@ -1927,7 +1927,7 @@ class WebhooksApi
      * Create request for operation 'updateWebhook'
      *
      * @param  int $id Webhook ID (required)
-     * @param  \Dinas\ShippingClient\Model\Webhook $webhook (required)
+     * @param  \Dinas\ShippingSdk\Model\Webhook $webhook (required)
      *
      * @throws \InvalidArgumentException
      * @return RequestInterface

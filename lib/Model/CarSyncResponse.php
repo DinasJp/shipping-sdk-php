@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient\Model;
+namespace Dinas\ShippingSdk\Model;
 
 use \ArrayAccess;
-use \Dinas\ShippingClient\ObjectSerializer;
+use \Dinas\ShippingSdk\ObjectSerializer;
 
 /**
  * CarSyncResponse Class Doc Comment
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,7 +63,7 @@ class CarSyncResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'updated' => 'string[]',
         'booking_cancelled' => 'string[]',
         'booking_not_cancelled' => 'string[]',
-        'errors' => '\Dinas\ShippingClient\Model\CarError[]'
+        'errors' => '\Dinas\ShippingSdk\Model\CarError[]'
     ];
 
     /**
@@ -463,7 +463,7 @@ class CarSyncResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets errors
      *
-     * @return \Dinas\ShippingClient\Model\CarError[]|null
+     * @return \Dinas\ShippingSdk\Model\CarError[]|null
      */
     public function getErrors()
     {
@@ -473,7 +473,7 @@ class CarSyncResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets errors
      *
-     * @param \Dinas\ShippingClient\Model\CarError[]|null $errors List of errors encountered during sync
+     * @param \Dinas\ShippingSdk\Model\CarError[]|null $errors List of errors encountered during sync
      *
      * @return self
      */

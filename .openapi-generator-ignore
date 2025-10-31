@@ -24,3 +24,4 @@
 
 composer.json
 git_push.sh
+.gitignore

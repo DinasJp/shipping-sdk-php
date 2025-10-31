@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Voyage ID | [optional] [readonly]
-**status** | [**\Dinas\ShippingClient\Model\VoyageStatus**](VoyageStatus.md) |  | [optional]
+**status** | [**\Dinas\ShippingSdk\Model\VoyageStatus**](VoyageStatus.md) |  | [optional]
 **number** | **string** | Voyage number | [optional] [readonly]
 **vessel** | **string** | Vessel name | [optional] [readonly]
 **cut_date** | **\DateTime** | Date when document acceptance stops | [optional] [readonly]

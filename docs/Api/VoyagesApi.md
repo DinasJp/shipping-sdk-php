@@ -1,4 +1,4 @@
-# Dinas\ShippingClient\VoyagesApi
+# Dinas\ShippingSdk\VoyagesApi
 
 All URIs are relative to https://shipping.dinas.jp.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `getVoyage()`
 
 ```php
-getVoyage($voyage): \Dinas\ShippingClient\Model\Voyage
+getVoyage($voyage): \Dinas\ShippingSdk\Model\Voyage
 ```
 
 Retrieve detailed information about a specific voyage
@@ -24,10 +24,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\VoyagesApi(
+$apiInstance = new Dinas\ShippingSdk\Api\VoyagesApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\Voyage**](../Model/Voyage.md)
+[**\Dinas\ShippingSdk\Model\Voyage**](../Model/Voyage.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 ## `getVoyages()`
 
 ```php
-getVoyages($status, $search, $sort, $per_page, $page): \Dinas\ShippingClient\Model\VoyagesPaginated
+getVoyages($status, $search, $sort, $per_page, $page): \Dinas\ShippingSdk\Model\VoyagesPaginated
 ```
 
 Retrieve a paginated list of voyages with optional filtering and sorting
@@ -82,10 +82,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Dinas\ShippingClient\Api\VoyagesApi(
+$apiInstance = new Dinas\ShippingSdk\Api\VoyagesApi(
     // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
     // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
     new GuzzleHttp\Client(),
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Dinas\ShippingClient\Model\VoyagesPaginated**](../Model/VoyagesPaginated.md)
+[**\Dinas\ShippingSdk\Model\VoyagesPaginated**](../Model/VoyagesPaginated.md)
 
 ### Authorization
 

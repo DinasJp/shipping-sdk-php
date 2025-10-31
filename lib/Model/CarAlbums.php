@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Dinas\ShippingClient\Model;
+namespace Dinas\ShippingSdk\Model;
 
 use \ArrayAccess;
-use \Dinas\ShippingClient\ObjectSerializer;
+use \Dinas\ShippingSdk\ObjectSerializer;
 
 /**
  * CarAlbums Class Doc Comment
  *
  * @category Class
  * @description All car photos groped by album
- * @package  Dinas\ShippingClient
+ * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,7 +61,7 @@ class CarAlbums implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'int',
         'chassis' => 'string',
-        'albums' => '\Dinas\ShippingClient\Model\Album[]'
+        'albums' => '\Dinas\ShippingSdk\Model\Album[]'
     ];
 
     /**
@@ -362,7 +362,7 @@ class CarAlbums implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets albums
      *
-     * @return \Dinas\ShippingClient\Model\Album[]|null
+     * @return \Dinas\ShippingSdk\Model\Album[]|null
      */
     public function getAlbums()
     {
@@ -372,7 +372,7 @@ class CarAlbums implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets albums
      *
-     * @param \Dinas\ShippingClient\Model\Album[]|null $albums Photo albums
+     * @param \Dinas\ShippingSdk\Model\Album[]|null $albums Photo albums
      *
      * @return self
      */

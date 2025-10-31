@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Car ID | [optional] [readonly]
 **chassis** | **string** | Chassis number |
-**make** | **string** | Car manufacturer |
-**model** | **string** | Car model |
+**make** | **string** | Car manufacturer **Required for creation** | [optional]
+**model** | **string** | Car model **Required for creation** | [optional]
 **year** | **int** | Manufacturing year | [optional]
 **color** | **string** | Car color | [optional]
-**export_type** | [**\Dinas\ShippingClient\Model\ExportType**](ExportType.md) |  | [optional]
-**export_method** | [**\Dinas\ShippingClient\Model\ExportMethod**](ExportMethod.md) |  | [optional]
-**vehicle_type** | [**\Dinas\ShippingClient\Model\VehicleType**](VehicleType.md) |  | [optional]
-**fuel** | [**\Dinas\ShippingClient\Model\FuelType**](FuelType.md) |  | [optional]
+**export_type** | [**\Dinas\ShippingSdk\Model\ExportType**](ExportType.md) |  | [optional]
+**export_method** | [**\Dinas\ShippingSdk\Model\ExportMethod**](ExportMethod.md) |  | [optional]
+**vehicle_type** | [**\Dinas\ShippingSdk\Model\VehicleType**](VehicleType.md) |  | [optional]
+**fuel** | [**\Dinas\ShippingSdk\Model\FuelType**](FuelType.md) |  | [optional]
 **engine_model** | **string** | Engine model | [optional]
 **engine_number** | **string** | Engine number | [optional]
 **engine_size** | **float** | Engine size in cc | [optional]
@@ -25,14 +25,14 @@ Name | Type | Description | Notes
 **length** | **float** | Length in cm | [optional]
 **width** | **float** | Width in cm | [optional]
 **height** | **float** | Height in cm | [optional]
-**price_terms** | [**\Dinas\ShippingClient\Model\PriceTerms**](PriceTerms.md) |  | [optional]
+**price_terms** | [**\Dinas\ShippingSdk\Model\PriceTerms**](PriceTerms.md) |  | [optional]
 **unit_price** | **float** | Unit price (as in invoice without freight) | [optional]
-**purchase_date** | **\DateTime** | Purchase date |
+**purchase_date** | **\DateTime** | Purchase date **Required for creation** | [optional]
 **damaged** | **bool** | Whether the car is damaged | [optional]
-**ship_date_limit** | [**\Dinas\ShippingClient\Model\ShipDateLimit**](ShipDateLimit.md) |  | [optional]
+**ship_date_limit** | [**\Dinas\ShippingSdk\Model\ShipDateLimit**](ShipDateLimit.md) |  | [optional]
 **withhold** | **string** | Reason why the car must not be handed to the client. Set it to null to allow us to do it. | [optional]
 **note** | **string** | Any comments | [optional]
-**dealer** | [**\Dinas\ShippingClient\Model\Dealer**](Dealer.md) |  | [optional]
+**dealer** | [**\Dinas\ShippingSdk\Model\Dealer**](Dealer.md) |  | [optional]
 **pol** | **string** | Loading port code (e.g. TOY, OSK, KWS) | [optional]
 **hold** | **bool** | \&quot;Do not ship\&quot; status: true &#x3D; hold, false &#x3D; ship. **Cannot be used together with &#39;ship_date_limit&#39; field.** | [optional]
 

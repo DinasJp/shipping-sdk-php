@@ -1,11 +1,11 @@
-# # CarAlbums
+# # VoyageInfo
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Car ID | [optional]
-**chassis** | **string** | Chassis number | [optional]
-**albums** | [**\Dinas\ShippingSdk\Model\Album[]**](Album.md) | Photo albums | [optional]
+**id** | **int** | Voyage ID | [optional] [readonly]
+**status** | [**\Dinas\ShippingSdk\Model\VoyageStatus**](VoyageStatus.md) |  | [optional]
+**number** | **string** | Voyage number | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
