@@ -60,7 +60,7 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'email' => 'string',
         'phone' => 'string',
-        'company_code' => 'string',
+        'code' => 'string',
         'last_name' => 'string',
         'first_name' => 'string',
         'middle_name' => 'string'
@@ -76,7 +76,7 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'email' => 'email',
         'phone' => null,
-        'company_code' => null,
+        'code' => null,
         'last_name' => null,
         'first_name' => null,
         'middle_name' => null
@@ -90,7 +90,7 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'email' => false,
         'phone' => true,
-        'company_code' => false,
+        'code' => false,
         'last_name' => false,
         'first_name' => false,
         'middle_name' => true
@@ -184,7 +184,7 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'email' => 'email',
         'phone' => 'phone',
-        'company_code' => 'company_code',
+        'code' => 'code',
         'last_name' => 'last_name',
         'first_name' => 'first_name',
         'middle_name' => 'middle_name'
@@ -198,7 +198,7 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'email' => 'setEmail',
         'phone' => 'setPhone',
-        'company_code' => 'setCompanyCode',
+        'code' => 'setCode',
         'last_name' => 'setLastName',
         'first_name' => 'setFirstName',
         'middle_name' => 'setMiddleName'
@@ -212,7 +212,7 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'email' => 'getEmail',
         'phone' => 'getPhone',
-        'company_code' => 'getCompanyCode',
+        'code' => 'getCode',
         'last_name' => 'getLastName',
         'first_name' => 'getFirstName',
         'middle_name' => 'getMiddleName'
@@ -277,7 +277,7 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
-        $this->setIfExists('company_code', $data ?? [], null);
+        $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('middle_name', $data ?? [], null);
@@ -321,8 +321,8 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'phone', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['company_code']) && (mb_strlen($this->container['company_code']) > 20)) {
-            $invalidProperties[] = "invalid value for 'company_code', the character length must be smaller than or equal to 20.";
+        if (!is_null($this->container['code']) && (mb_strlen($this->container['code']) > 20)) {
+            $invalidProperties[] = "invalid value for 'code', the character length must be smaller than or equal to 20.";
         }
 
         if ($this->container['last_name'] === null) {
@@ -428,32 +428,32 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets company_code
+     * Gets code
      *
      * @return string|null
      */
-    public function getCompanyCode()
+    public function getCode()
     {
-        return $this->container['company_code'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets company_code
+     * Sets code
      *
-     * @param string|null $company_code Dealer code
+     * @param string|null $code Dealer code
      *
      * @return self
      */
-    public function setCompanyCode($company_code)
+    public function setCode($code)
     {
-        if (is_null($company_code)) {
-            throw new \InvalidArgumentException('non-nullable company_code cannot be null');
+        if (is_null($code)) {
+            throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
-        if ((mb_strlen($company_code) > 20)) {
-            throw new \InvalidArgumentException('invalid length for $company_code when calling Dealer., must be smaller than or equal to 20.');
+        if ((mb_strlen($code) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $code when calling Dealer., must be smaller than or equal to 20.');
         }
 
-        $this->container['company_code'] = $company_code;
+        $this->container['code'] = $code;
 
         return $this;
     }
