@@ -180,15 +180,15 @@ class WebhooksApi
      *
      * Delete a webhook
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Dinas\ShippingSdk\Model\ActionResponse
      */
-    public function deleteWebhook($id)
+    public function deleteWebhook($name)
     {
-        list($response) = $this->deleteWebhookWithHttpInfo($id);
+        list($response) = $this->deleteWebhookWithHttpInfo($name);
         return $response;
     }
 
@@ -197,15 +197,15 @@ class WebhooksApi
      *
      * Delete a webhook
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Dinas\ShippingSdk\Model\ActionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteWebhookWithHttpInfo($id)
+    public function deleteWebhookWithHttpInfo($name)
     {
-        $request = $this->deleteWebhookRequest($id);
+        $request = $this->deleteWebhookRequest($name);
 
         try {
             try {
@@ -284,14 +284,14 @@ class WebhooksApi
      *
      * Delete a webhook
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
-    public function deleteWebhookAsync($id)
+    public function deleteWebhookAsync($name)
     {
-        return $this->deleteWebhookAsyncWithHttpInfo($id)
+        return $this->deleteWebhookAsyncWithHttpInfo($name)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -304,15 +304,15 @@ class WebhooksApi
      *
      * Delete a webhook
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
-    public function deleteWebhookAsyncWithHttpInfo($id)
+    public function deleteWebhookAsyncWithHttpInfo($name)
     {
         $returnType = '\Dinas\ShippingSdk\Model\ActionResponse';
-        $request = $this->deleteWebhookRequest($id);
+        $request = $this->deleteWebhookRequest($name);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
             ->then(
@@ -349,21 +349,21 @@ class WebhooksApi
     /**
      * Create request for operation 'deleteWebhook'
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \InvalidArgumentException
      * @return RequestInterface
      */
-    public function deleteWebhookRequest($id)
+    public function deleteWebhookRequest($name)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'name' is set
+        if ($name === null || (is_array($name) && count($name) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteWebhook'
+                'Missing the required parameter $name when calling deleteWebhook'
             );
         }
 
-        $resourcePath = '/api/webhooks/{id}';
+        $resourcePath = '/api/webhooks/{name}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -373,10 +373,10 @@ class WebhooksApi
 
 
         // path params
-        if ($id !== null) {
+        if ($name !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'name' . '}',
+                ObjectSerializer::toPathValue($name),
                 $resourcePath
             );
         }
@@ -439,34 +439,34 @@ class WebhooksApi
     /**
      * Operation getWebhook
      *
-     * Retrieve a specific webhook by ID
+     * Retrieve a specific webhook by name
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Dinas\ShippingSdk\Model\Webhook
      */
-    public function getWebhook($id)
+    public function getWebhook($name)
     {
-        list($response) = $this->getWebhookWithHttpInfo($id);
+        list($response) = $this->getWebhookWithHttpInfo($name);
         return $response;
     }
 
     /**
      * Operation getWebhookWithHttpInfo
      *
-     * Retrieve a specific webhook by ID
+     * Retrieve a specific webhook by name
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Dinas\ShippingSdk\Model\Webhook, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookWithHttpInfo($id)
+    public function getWebhookWithHttpInfo($name)
     {
-        $request = $this->getWebhookRequest($id);
+        $request = $this->getWebhookRequest($name);
 
         try {
             try {
@@ -543,16 +543,16 @@ class WebhooksApi
     /**
      * Operation getWebhookAsync
      *
-     * Retrieve a specific webhook by ID
+     * Retrieve a specific webhook by name
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
-    public function getWebhookAsync($id)
+    public function getWebhookAsync($name)
     {
-        return $this->getWebhookAsyncWithHttpInfo($id)
+        return $this->getWebhookAsyncWithHttpInfo($name)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -563,17 +563,17 @@ class WebhooksApi
     /**
      * Operation getWebhookAsyncWithHttpInfo
      *
-     * Retrieve a specific webhook by ID
+     * Retrieve a specific webhook by name
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
-    public function getWebhookAsyncWithHttpInfo($id)
+    public function getWebhookAsyncWithHttpInfo($name)
     {
         $returnType = '\Dinas\ShippingSdk\Model\Webhook';
-        $request = $this->getWebhookRequest($id);
+        $request = $this->getWebhookRequest($name);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
             ->then(
@@ -610,21 +610,21 @@ class WebhooksApi
     /**
      * Create request for operation 'getWebhook'
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \InvalidArgumentException
      * @return RequestInterface
      */
-    public function getWebhookRequest($id)
+    public function getWebhookRequest($name)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'name' is set
+        if ($name === null || (is_array($name) && count($name) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getWebhook'
+                'Missing the required parameter $name when calling getWebhook'
             );
         }
 
-        $resourcePath = '/api/webhooks/{id}';
+        $resourcePath = '/api/webhooks/{name}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -634,10 +634,10 @@ class WebhooksApi
 
 
         // path params
-        if ($id !== null) {
+        if ($name !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'name' . '}',
+                ObjectSerializer::toPathValue($name),
                 $resourcePath
             );
         }
@@ -1203,15 +1203,15 @@ class WebhooksApi
      *
      * Send a test payload to the webhook to verify it&#39;s working
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Dinas\ShippingSdk\Model\ActionResponse|\Dinas\ShippingSdk\Model\ActionResponse|\Dinas\ShippingSdk\Model\ActionResponse
      */
-    public function testWebhook($id)
+    public function testWebhook($name)
     {
-        list($response) = $this->testWebhookWithHttpInfo($id);
+        list($response) = $this->testWebhookWithHttpInfo($name);
         return $response;
     }
 
@@ -1220,15 +1220,15 @@ class WebhooksApi
      *
      * Send a test payload to the webhook to verify it&#39;s working
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Dinas\ShippingSdk\Model\ActionResponse|\Dinas\ShippingSdk\Model\ActionResponse|\Dinas\ShippingSdk\Model\ActionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function testWebhookWithHttpInfo($id)
+    public function testWebhookWithHttpInfo($name)
     {
-        $request = $this->testWebhookRequest($id);
+        $request = $this->testWebhookRequest($name);
 
         try {
             try {
@@ -1335,14 +1335,14 @@ class WebhooksApi
      *
      * Send a test payload to the webhook to verify it&#39;s working
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
-    public function testWebhookAsync($id)
+    public function testWebhookAsync($name)
     {
-        return $this->testWebhookAsyncWithHttpInfo($id)
+        return $this->testWebhookAsyncWithHttpInfo($name)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1355,15 +1355,15 @@ class WebhooksApi
      *
      * Send a test payload to the webhook to verify it&#39;s working
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
-    public function testWebhookAsyncWithHttpInfo($id)
+    public function testWebhookAsyncWithHttpInfo($name)
     {
         $returnType = '\Dinas\ShippingSdk\Model\ActionResponse';
-        $request = $this->testWebhookRequest($id);
+        $request = $this->testWebhookRequest($name);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
             ->then(
@@ -1400,21 +1400,21 @@ class WebhooksApi
     /**
      * Create request for operation 'testWebhook'
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \InvalidArgumentException
      * @return RequestInterface
      */
-    public function testWebhookRequest($id)
+    public function testWebhookRequest($name)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'name' is set
+        if ($name === null || (is_array($name) && count($name) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling testWebhook'
+                'Missing the required parameter $name when calling testWebhook'
             );
         }
 
-        $resourcePath = '/api/webhooks/{id}/test';
+        $resourcePath = '/api/webhooks/{name}/test';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1424,10 +1424,10 @@ class WebhooksApi
 
 
         // path params
-        if ($id !== null) {
+        if ($name !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'name' . '}',
+                ObjectSerializer::toPathValue($name),
                 $resourcePath
             );
         }
@@ -1492,15 +1492,15 @@ class WebhooksApi
      *
      * Toggle the active status of a webhook
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Dinas\ShippingSdk\Model\ActionResponse
      */
-    public function toggleWebhook($id)
+    public function toggleWebhook($name)
     {
-        list($response) = $this->toggleWebhookWithHttpInfo($id);
+        list($response) = $this->toggleWebhookWithHttpInfo($name);
         return $response;
     }
 
@@ -1509,15 +1509,15 @@ class WebhooksApi
      *
      * Toggle the active status of a webhook
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Dinas\ShippingSdk\Model\ActionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function toggleWebhookWithHttpInfo($id)
+    public function toggleWebhookWithHttpInfo($name)
     {
-        $request = $this->toggleWebhookRequest($id);
+        $request = $this->toggleWebhookRequest($name);
 
         try {
             try {
@@ -1596,14 +1596,14 @@ class WebhooksApi
      *
      * Toggle the active status of a webhook
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
-    public function toggleWebhookAsync($id)
+    public function toggleWebhookAsync($name)
     {
-        return $this->toggleWebhookAsyncWithHttpInfo($id)
+        return $this->toggleWebhookAsyncWithHttpInfo($name)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1616,15 +1616,15 @@ class WebhooksApi
      *
      * Toggle the active status of a webhook
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
-    public function toggleWebhookAsyncWithHttpInfo($id)
+    public function toggleWebhookAsyncWithHttpInfo($name)
     {
         $returnType = '\Dinas\ShippingSdk\Model\ActionResponse';
-        $request = $this->toggleWebhookRequest($id);
+        $request = $this->toggleWebhookRequest($name);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
             ->then(
@@ -1661,21 +1661,21 @@ class WebhooksApi
     /**
      * Create request for operation 'toggleWebhook'
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      *
      * @throws \InvalidArgumentException
      * @return RequestInterface
      */
-    public function toggleWebhookRequest($id)
+    public function toggleWebhookRequest($name)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'name' is set
+        if ($name === null || (is_array($name) && count($name) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling toggleWebhook'
+                'Missing the required parameter $name when calling toggleWebhook'
             );
         }
 
-        $resourcePath = '/api/webhooks/{id}/toggle';
+        $resourcePath = '/api/webhooks/{name}/toggle';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1685,10 +1685,10 @@ class WebhooksApi
 
 
         // path params
-        if ($id !== null) {
+        if ($name !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'name' . '}',
+                ObjectSerializer::toPathValue($name),
                 $resourcePath
             );
         }
@@ -1753,16 +1753,16 @@ class WebhooksApi
      *
      * Update an existing webhook
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      * @param  \Dinas\ShippingSdk\Model\Webhook $webhook webhook (required)
      *
      * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Dinas\ShippingSdk\Model\Webhook
      */
-    public function updateWebhook($id, $webhook)
+    public function updateWebhook($name, $webhook)
     {
-        list($response) = $this->updateWebhookWithHttpInfo($id, $webhook);
+        list($response) = $this->updateWebhookWithHttpInfo($name, $webhook);
         return $response;
     }
 
@@ -1771,16 +1771,16 @@ class WebhooksApi
      *
      * Update an existing webhook
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      * @param  \Dinas\ShippingSdk\Model\Webhook $webhook (required)
      *
      * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Dinas\ShippingSdk\Model\Webhook, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateWebhookWithHttpInfo($id, $webhook)
+    public function updateWebhookWithHttpInfo($name, $webhook)
     {
-        $request = $this->updateWebhookRequest($id, $webhook);
+        $request = $this->updateWebhookRequest($name, $webhook);
 
         try {
             try {
@@ -1859,15 +1859,15 @@ class WebhooksApi
      *
      * Update an existing webhook
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      * @param  \Dinas\ShippingSdk\Model\Webhook $webhook (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
-    public function updateWebhookAsync($id, $webhook)
+    public function updateWebhookAsync($name, $webhook)
     {
-        return $this->updateWebhookAsyncWithHttpInfo($id, $webhook)
+        return $this->updateWebhookAsyncWithHttpInfo($name, $webhook)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1880,16 +1880,16 @@ class WebhooksApi
      *
      * Update an existing webhook
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      * @param  \Dinas\ShippingSdk\Model\Webhook $webhook (required)
      *
      * @throws \InvalidArgumentException
      * @return Promise
      */
-    public function updateWebhookAsyncWithHttpInfo($id, $webhook)
+    public function updateWebhookAsyncWithHttpInfo($name, $webhook)
     {
         $returnType = '\Dinas\ShippingSdk\Model\Webhook';
-        $request = $this->updateWebhookRequest($id, $webhook);
+        $request = $this->updateWebhookRequest($name, $webhook);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
             ->then(
@@ -1926,18 +1926,18 @@ class WebhooksApi
     /**
      * Create request for operation 'updateWebhook'
      *
-     * @param  int $id Webhook ID (required)
+     * @param  string $name Webhook name (required)
      * @param  \Dinas\ShippingSdk\Model\Webhook $webhook (required)
      *
      * @throws \InvalidArgumentException
      * @return RequestInterface
      */
-    public function updateWebhookRequest($id, $webhook)
+    public function updateWebhookRequest($name, $webhook)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'name' is set
+        if ($name === null || (is_array($name) && count($name) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling updateWebhook'
+                'Missing the required parameter $name when calling updateWebhook'
             );
         }
         // verify the required parameter 'webhook' is set
@@ -1947,7 +1947,7 @@ class WebhooksApi
             );
         }
 
-        $resourcePath = '/api/webhooks/{id}';
+        $resourcePath = '/api/webhooks/{name}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1957,10 +1957,10 @@ class WebhooksApi
 
 
         // path params
-        if ($id !== null) {
+        if ($name !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'name' . '}',
+                ObjectSerializer::toPathValue($name),
                 $resourcePath
             );
         }

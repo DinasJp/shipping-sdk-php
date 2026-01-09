@@ -4,19 +4,19 @@ All URIs are relative to https://shipping.dinas.jp.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteWebhook()**](WebhooksApi.md#deleteWebhook) | **DELETE** /api/webhooks/{id} | Delete a webhook
-[**getWebhook()**](WebhooksApi.md#getWebhook) | **GET** /api/webhooks/{id} | Retrieve a specific webhook by ID
+[**deleteWebhook()**](WebhooksApi.md#deleteWebhook) | **DELETE** /api/webhooks/{name} | Delete a webhook
+[**getWebhook()**](WebhooksApi.md#getWebhook) | **GET** /api/webhooks/{name} | Retrieve a specific webhook by name
 [**getWebhooks()**](WebhooksApi.md#getWebhooks) | **GET** /api/webhooks | Retrieve a list of webhooks
 [**storeWebhook()**](WebhooksApi.md#storeWebhook) | **POST** /api/webhooks | Create a new webhook
-[**testWebhook()**](WebhooksApi.md#testWebhook) | **POST** /api/webhooks/{id}/test | Send a test payload to the webhook to verify it&#39;s working
-[**toggleWebhook()**](WebhooksApi.md#toggleWebhook) | **PATCH** /api/webhooks/{id}/toggle | Toggle the active status of a webhook
-[**updateWebhook()**](WebhooksApi.md#updateWebhook) | **PUT** /api/webhooks/{id} | Update an existing webhook
+[**testWebhook()**](WebhooksApi.md#testWebhook) | **POST** /api/webhooks/{name}/test | Send a test payload to the webhook to verify it&#39;s working
+[**toggleWebhook()**](WebhooksApi.md#toggleWebhook) | **PATCH** /api/webhooks/{name}/toggle | Toggle the active status of a webhook
+[**updateWebhook()**](WebhooksApi.md#updateWebhook) | **PUT** /api/webhooks/{name} | Update an existing webhook
 
 
 ## `deleteWebhook()`
 
 ```php
-deleteWebhook($id): \Dinas\ShippingSdk\Model\ActionResponse
+deleteWebhook($name): \Dinas\ShippingSdk\Model\ActionResponse
 ```
 
 Delete a webhook
@@ -38,10 +38,10 @@ $apiInstance = new Dinas\ShippingSdk\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | Webhook ID
+$name = default; // string | Webhook name
 
 try {
-    $result = $apiInstance->deleteWebhook($id);
+    $result = $apiInstance->deleteWebhook($name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->deleteWebhook: ', $e->getMessage(), PHP_EOL;
@@ -52,7 +52,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Webhook ID |
+ **name** | **string**| Webhook name |
 
 ### Return type
 
@@ -74,10 +74,10 @@ Name | Type | Description  | Notes
 ## `getWebhook()`
 
 ```php
-getWebhook($id): \Dinas\ShippingSdk\Model\Webhook
+getWebhook($name): \Dinas\ShippingSdk\Model\Webhook
 ```
 
-Retrieve a specific webhook by ID
+Retrieve a specific webhook by name
 
 ### Example
 
@@ -96,10 +96,10 @@ $apiInstance = new Dinas\ShippingSdk\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | Webhook ID
+$name = default; // string | Webhook name
 
 try {
-    $result = $apiInstance->getWebhook($id);
+    $result = $apiInstance->getWebhook($name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->getWebhook: ', $e->getMessage(), PHP_EOL;
@@ -110,7 +110,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Webhook ID |
+ **name** | **string**| Webhook name |
 
 ### Return type
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 ## `testWebhook()`
 
 ```php
-testWebhook($id): \Dinas\ShippingSdk\Model\ActionResponse
+testWebhook($name): \Dinas\ShippingSdk\Model\ActionResponse
 ```
 
 Send a test payload to the webhook to verify it's working
@@ -267,10 +267,10 @@ $apiInstance = new Dinas\ShippingSdk\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | Webhook ID
+$name = default; // string | Webhook name
 
 try {
-    $result = $apiInstance->testWebhook($id);
+    $result = $apiInstance->testWebhook($name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->testWebhook: ', $e->getMessage(), PHP_EOL;
@@ -281,7 +281,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Webhook ID |
+ **name** | **string**| Webhook name |
 
 ### Return type
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 ## `toggleWebhook()`
 
 ```php
-toggleWebhook($id): \Dinas\ShippingSdk\Model\ActionResponse
+toggleWebhook($name): \Dinas\ShippingSdk\Model\ActionResponse
 ```
 
 Toggle the active status of a webhook
@@ -325,10 +325,10 @@ $apiInstance = new Dinas\ShippingSdk\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | Webhook ID
+$name = default; // string | Webhook name
 
 try {
-    $result = $apiInstance->toggleWebhook($id);
+    $result = $apiInstance->toggleWebhook($name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->toggleWebhook: ', $e->getMessage(), PHP_EOL;
@@ -339,7 +339,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Webhook ID |
+ **name** | **string**| Webhook name |
 
 ### Return type
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 ## `updateWebhook()`
 
 ```php
-updateWebhook($id, $webhook): \Dinas\ShippingSdk\Model\Webhook
+updateWebhook($name, $webhook): \Dinas\ShippingSdk\Model\Webhook
 ```
 
 Update an existing webhook
@@ -383,11 +383,11 @@ $apiInstance = new Dinas\ShippingSdk\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | Webhook ID
+$name = default; // string | Webhook name
 $webhook = new \Dinas\ShippingSdk\Model\Webhook(); // \Dinas\ShippingSdk\Model\Webhook
 
 try {
-    $result = $apiInstance->updateWebhook($id, $webhook);
+    $result = $apiInstance->updateWebhook($name, $webhook);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->updateWebhook: ', $e->getMessage(), PHP_EOL;
@@ -398,7 +398,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Webhook ID |
+ **name** | **string**| Webhook name |
  **webhook** | [**\Dinas\ShippingSdk\Model\Webhook**](../Model/Webhook.md)|  |
 
 ### Return type

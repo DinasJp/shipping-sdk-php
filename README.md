@@ -89,13 +89,13 @@ Class | Method | HTTP request | Description
 *CarsApi* | [**syncCars**](docs/Api/CarsApi.md#synccars) | **POST** /api/cars | Create or update cars
 *VoyagesApi* | [**getVoyage**](docs/Api/VoyagesApi.md#getvoyage) | **GET** /api/voyages/{voyage} | Retrieve detailed information about a specific voyage
 *VoyagesApi* | [**getVoyages**](docs/Api/VoyagesApi.md#getvoyages) | **GET** /api/voyages | Retrieve a paginated list of voyages with optional filtering and sorting
-*WebhooksApi* | [**deleteWebhook**](docs/Api/WebhooksApi.md#deletewebhook) | **DELETE** /api/webhooks/{id} | Delete a webhook
-*WebhooksApi* | [**getWebhook**](docs/Api/WebhooksApi.md#getwebhook) | **GET** /api/webhooks/{id} | Retrieve a specific webhook by ID
+*WebhooksApi* | [**deleteWebhook**](docs/Api/WebhooksApi.md#deletewebhook) | **DELETE** /api/webhooks/{name} | Delete a webhook
+*WebhooksApi* | [**getWebhook**](docs/Api/WebhooksApi.md#getwebhook) | **GET** /api/webhooks/{name} | Retrieve a specific webhook by name
 *WebhooksApi* | [**getWebhooks**](docs/Api/WebhooksApi.md#getwebhooks) | **GET** /api/webhooks | Retrieve a list of webhooks
 *WebhooksApi* | [**storeWebhook**](docs/Api/WebhooksApi.md#storewebhook) | **POST** /api/webhooks | Create a new webhook
-*WebhooksApi* | [**testWebhook**](docs/Api/WebhooksApi.md#testwebhook) | **POST** /api/webhooks/{id}/test | Send a test payload to the webhook to verify it&#39;s working
-*WebhooksApi* | [**toggleWebhook**](docs/Api/WebhooksApi.md#togglewebhook) | **PATCH** /api/webhooks/{id}/toggle | Toggle the active status of a webhook
-*WebhooksApi* | [**updateWebhook**](docs/Api/WebhooksApi.md#updatewebhook) | **PUT** /api/webhooks/{id} | Update an existing webhook
+*WebhooksApi* | [**testWebhook**](docs/Api/WebhooksApi.md#testwebhook) | **POST** /api/webhooks/{name}/test | Send a test payload to the webhook to verify it&#39;s working
+*WebhooksApi* | [**toggleWebhook**](docs/Api/WebhooksApi.md#togglewebhook) | **PATCH** /api/webhooks/{name}/toggle | Toggle the active status of a webhook
+*WebhooksApi* | [**updateWebhook**](docs/Api/WebhooksApi.md#updatewebhook) | **PUT** /api/webhooks/{name} | Update an existing webhook
 
 ## Models
 

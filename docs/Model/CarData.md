@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **withhold** | **string** | Reason why the car must not be handed to the client. Set it to null to allow us to do it. | [optional]
 **note** | **string** | Any comments | [optional]
 **dealer** | [**\Dinas\ShippingSdk\Model\Dealer**](Dealer.md) |  | [optional]
-**pol** | **string** | Loading port code (e.g. TOY, OSK, KWS) | [optional]
+**pol** | **string** | Loading port code (e.g. TOY, OSA, KWS) | [optional]
 **hold** | **bool** | \&quot;Do not ship\&quot; status: true &#x3D; hold, false &#x3D; ship. **Cannot be used together with &#39;ship_date_limit&#39; field.** | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

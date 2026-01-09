@@ -1587,7 +1587,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pol
      *
-     * @param string|null $pol Loading port code (e.g. TOY, OSK, KWS)
+     * @param string|null $pol Loading port code (e.g. TOY, OSA, KWS)
      *
      * @return self
      */
