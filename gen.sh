@@ -1,7 +1,9 @@
 #!/bin/sh
 
-docker run --rm -v "$PWD:/local" openapitools/openapi-generator-cli \
-  generate \
+docker run --rm \
+  --user "$(id -u):$(id -g)" \
+  -v "$PWD:/local" \
+  openapitools/openapi-generator-cli generate \
   -i https://shipping.dinas.jp/docs?api-docs.json \
   -g php \
   -o /local/ \

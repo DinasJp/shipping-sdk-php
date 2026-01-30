@@ -4,93 +4,19 @@ All URIs are relative to https://shipping.dinas.jp.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCarPhotos()**](CarsApi.md#getCarPhotos) | **GET** /api/cars/photos | Get car photos
 [**getCars()**](CarsApi.md#getCars) | **GET** /api/cars | Get paginated list of cars
-[**storeCarDocuments()**](CarsApi.md#storeCarDocuments) | **POST** /api/cars/docs | Store car documents
-[**storeCarPhotos()**](CarsApi.md#storeCarPhotos) | **POST** /api/cars/photos | Store car photos
+[**grantCars()**](CarsApi.md#grantCars) | **POST** /api/cars/grant | Clear withhold status
+[**holdCars()**](CarsApi.md#holdCars) | **POST** /api/cars/hold | Hold cars from shipping
+[**releaseCars()**](CarsApi.md#releaseCars) | **POST** /api/cars/release | Allow us to ship cars
+[**setYardEta()**](CarsApi.md#setYardEta) | **POST** /api/cars/yard/eta | Set yard ETA for cars
 [**syncCars()**](CarsApi.md#syncCars) | **POST** /api/cars | Create or update cars
+[**withholdCars()**](CarsApi.md#withholdCars) | **POST** /api/cars/withhold | Withhold cars upon arrival
 
-
-## `getCarPhotos()`
-
-```php
-getCarPhotos($status, $chassis, $search, $voyage, $photos, $on_yard, $sort, $per_page, $page): \Dinas\ShippingSdk\Model\AlbumsPaginated
-```
-
-Get car photos
-
-Retrieve a paginated list of cars with their photo albums
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (Token) authorization: bearerAuth
-$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
-    // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
-    // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
-    new GuzzleHttp\Client(),
-    $config
-);
-$status = 'status_example'; // string | Filter by car status
-$chassis = 'chassis_example'; // string | Filter by chassis number (multiple values separated by spaces)
-$search = 'search_example'; // string | Search by partial chassis, make, model
-$voyage = 'voyage_example'; // string | Filter by voyage
-$photos = True; // bool | Filter by photos presence
-$on_yard = True; // bool | Filter by yard presence
-$sort = 'sort_example'; // string | Sort field. Prefix with - for descending. **default: -id**
-$per_page = 56; // int | Number of items per page. **default: 100**
-$page = 56; // int | Page number. **default: 1**
-
-try {
-    $result = $apiInstance->getCarPhotos($status, $chassis, $search, $voyage, $photos, $on_yard, $sort, $per_page, $page);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CarsApi->getCarPhotos: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **status** | **string**| Filter by car status | [optional]
- **chassis** | **string**| Filter by chassis number (multiple values separated by spaces) | [optional]
- **search** | **string**| Search by partial chassis, make, model | [optional]
- **voyage** | **string**| Filter by voyage | [optional]
- **photos** | **bool**| Filter by photos presence | [optional]
- **on_yard** | **bool**| Filter by yard presence | [optional]
- **sort** | **string**| Sort field. Prefix with - for descending. **default: -id** | [optional]
- **per_page** | **int**| Number of items per page. **default: 100** | [optional]
- **page** | **int**| Page number. **default: 1** | [optional]
-
-### Return type
-
-[**\Dinas\ShippingSdk\Model\AlbumsPaginated**](../Model/AlbumsPaginated.md)
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
 
 ## `getCars()`
 
 ```php
-getCars($status, $chassis, $search, $voyage, $vehicle_state, $vehicle_type, $photos, $docs, $on_yard, $price_terms, $sort, $per_page, $page): \Dinas\ShippingSdk\Model\CarsPaginated
+getCars($status, $chassis, $search, $port_code, $voyage, $vehicle_state, $vehicle_type, $photos, $docs, $on_yard, $price_terms, $sort, $per_page, $page): \Dinas\ShippingSdk\Model\CarsPaginated
 ```
 
 Get paginated list of cars
@@ -117,6 +43,7 @@ $apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
 $status = 'status_example'; // string | Filter by car status
 $chassis = 'chassis_example'; // string | Filter by chassis number (multiple values separated by spaces)
 $search = 'search_example'; // string | Search by partial chassis, make, model
+$port_code = 'port_code_example'; // string | Filter by port code
 $voyage = 'voyage_example'; // string | Filter by voyage
 $vehicle_state = 'vehicle_state_example'; // string | Filter by vehicle state
 $vehicle_type = 'vehicle_type_example'; // string | Filter by vehicle type
@@ -129,7 +56,7 @@ $per_page = 56; // int | Number of items per page. **default: 100**
 $page = 56; // int | Page number. **default: 1**
 
 try {
-    $result = $apiInstance->getCars($status, $chassis, $search, $voyage, $vehicle_state, $vehicle_type, $photos, $docs, $on_yard, $price_terms, $sort, $per_page, $page);
+    $result = $apiInstance->getCars($status, $chassis, $search, $port_code, $voyage, $vehicle_state, $vehicle_type, $photos, $docs, $on_yard, $price_terms, $sort, $per_page, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CarsApi->getCars: ', $e->getMessage(), PHP_EOL;
@@ -143,6 +70,7 @@ Name | Type | Description  | Notes
  **status** | **string**| Filter by car status | [optional]
  **chassis** | **string**| Filter by chassis number (multiple values separated by spaces) | [optional]
  **search** | **string**| Search by partial chassis, make, model | [optional]
+ **port_code** | **string**| Filter by port code | [optional]
  **voyage** | **string**| Filter by voyage | [optional]
  **vehicle_state** | **string**| Filter by vehicle state | [optional]
  **vehicle_type** | **string**| Filter by vehicle type | [optional]
@@ -171,15 +99,15 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `storeCarDocuments()`
+## `grantCars()`
 
 ```php
-storeCarDocuments($items): \Dinas\ShippingSdk\Model\ActionResponse
+grantCars($grant_cars_request): \Dinas\ShippingSdk\Model\CarUpdateResponse
 ```
 
-Store car documents
+Clear withhold status
 
-Upload documents for multiple cars with validation dates
+Clear withhold status - allow release to consignee upon arrival
 
 ### Example
 
@@ -198,13 +126,13 @@ $apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$items = array(new \Dinas\ShippingSdk\Model\\Dinas\ShippingSdk\Model\DocumentData()); // \Dinas\ShippingSdk\Model\DocumentData[]
+$grant_cars_request = new \Dinas\ShippingSdk\Model\GrantCarsRequest(); // \Dinas\ShippingSdk\Model\GrantCarsRequest
 
 try {
-    $result = $apiInstance->storeCarDocuments($items);
+    $result = $apiInstance->grantCars($grant_cars_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CarsApi->storeCarDocuments: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CarsApi->grantCars: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -212,11 +140,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **items** | [**\Dinas\ShippingSdk\Model\DocumentData[]**](../Model/\Dinas\ShippingSdk\Model\DocumentData.md)|  |
+ **grant_cars_request** | [**\Dinas\ShippingSdk\Model\GrantCarsRequest**](../Model/GrantCarsRequest.md)|  |
 
 ### Return type
 
-[**\Dinas\ShippingSdk\Model\ActionResponse**](../Model/ActionResponse.md)
+[**\Dinas\ShippingSdk\Model\CarUpdateResponse**](../Model/CarUpdateResponse.md)
 
 ### Authorization
 
@@ -224,22 +152,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `multipart/form-data`
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `storeCarPhotos()`
+## `holdCars()`
 
 ```php
-storeCarPhotos($items): \Dinas\ShippingSdk\Model\ActionResponse
+holdCars($hold_cars_request): \Dinas\ShippingSdk\Model\CarUpdateResponse
 ```
 
-Store car photos
+Hold cars from shipping
 
-Upload photos for multiple cars to specific albums
+Put cars on hold - prevent shipping until released
 
 ### Example
 
@@ -258,13 +186,13 @@ $apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$items = array(new \Dinas\ShippingSdk\Model\\Dinas\ShippingSdk\Model\AlbumData()); // \Dinas\ShippingSdk\Model\AlbumData[]
+$hold_cars_request = new \Dinas\ShippingSdk\Model\HoldCarsRequest(); // \Dinas\ShippingSdk\Model\HoldCarsRequest
 
 try {
-    $result = $apiInstance->storeCarPhotos($items);
+    $result = $apiInstance->holdCars($hold_cars_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CarsApi->storeCarPhotos: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CarsApi->holdCars: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -272,11 +200,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **items** | [**\Dinas\ShippingSdk\Model\AlbumData[]**](../Model/\Dinas\ShippingSdk\Model\AlbumData.md)|  |
+ **hold_cars_request** | [**\Dinas\ShippingSdk\Model\HoldCarsRequest**](../Model/HoldCarsRequest.md)|  |
 
 ### Return type
 
-[**\Dinas\ShippingSdk\Model\ActionResponse**](../Model/ActionResponse.md)
+[**\Dinas\ShippingSdk\Model\CarUpdateResponse**](../Model/CarUpdateResponse.md)
 
 ### Authorization
 
@@ -284,7 +212,127 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `multipart/form-data`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `releaseCars()`
+
+```php
+releaseCars($release_cars_request): \Dinas\ShippingSdk\Model\CarUpdateResponse
+```
+
+Allow us to ship cars
+
+Release cars from hold - allow shipping
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (Token) authorization: bearerAuth
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
+    // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
+    // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
+    new GuzzleHttp\Client(),
+    $config
+);
+$release_cars_request = new \Dinas\ShippingSdk\Model\ReleaseCarsRequest(); // \Dinas\ShippingSdk\Model\ReleaseCarsRequest
+
+try {
+    $result = $apiInstance->releaseCars($release_cars_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CarsApi->releaseCars: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **release_cars_request** | [**\Dinas\ShippingSdk\Model\ReleaseCarsRequest**](../Model/ReleaseCarsRequest.md)|  |
+
+### Return type
+
+[**\Dinas\ShippingSdk\Model\CarUpdateResponse**](../Model/CarUpdateResponse.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `setYardEta()`
+
+```php
+setYardEta($set_yard_eta_request): \Dinas\ShippingSdk\Model\CarUpdateResponse
+```
+
+Set yard ETA for cars
+
+Set estimated time of arrival (ETA) for cars at yard
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (Token) authorization: bearerAuth
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
+    // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
+    // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
+    new GuzzleHttp\Client(),
+    $config
+);
+$set_yard_eta_request = new \Dinas\ShippingSdk\Model\SetYardEtaRequest(); // \Dinas\ShippingSdk\Model\SetYardEtaRequest
+
+try {
+    $result = $apiInstance->setYardEta($set_yard_eta_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CarsApi->setYardEta: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **set_yard_eta_request** | [**\Dinas\ShippingSdk\Model\SetYardEtaRequest**](../Model/SetYardEtaRequest.md)|  |
+
+### Return type
+
+[**\Dinas\ShippingSdk\Model\CarUpdateResponse**](../Model/CarUpdateResponse.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -294,7 +342,7 @@ Name | Type | Description  | Notes
 ## `syncCars()`
 
 ```php
-syncCars($car_data): \Dinas\ShippingSdk\Model\CarSyncResponse
+syncCars($car_data): \Dinas\ShippingSdk\Model\CarUpdateResponse
 ```
 
 Create or update cars
@@ -336,7 +384,67 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Dinas\ShippingSdk\Model\CarSyncResponse**](../Model/CarSyncResponse.md)
+[**\Dinas\ShippingSdk\Model\CarUpdateResponse**](../Model/CarUpdateResponse.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `withholdCars()`
+
+```php
+withholdCars($withhold_cars_request): \Dinas\ShippingSdk\Model\CarUpdateResponse
+```
+
+Withhold cars upon arrival
+
+Withhold cars upon arrival - prevent release to consignee
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (Token) authorization: bearerAuth
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
+    // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
+    // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
+    new GuzzleHttp\Client(),
+    $config
+);
+$withhold_cars_request = new \Dinas\ShippingSdk\Model\WithholdCarsRequest(); // \Dinas\ShippingSdk\Model\WithholdCarsRequest
+
+try {
+    $result = $apiInstance->withholdCars($withhold_cars_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CarsApi->withholdCars: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **withhold_cars_request** | [**\Dinas\ShippingSdk\Model\WithholdCarsRequest**](../Model/WithholdCarsRequest.md)|  |
+
+### Return type
+
+[**\Dinas\ShippingSdk\Model\CarUpdateResponse**](../Model/CarUpdateResponse.md)
 
 ### Authorization
 

@@ -30,7 +30,6 @@ Name | Type | Description | Notes
 **purchase_date** | **\DateTime** | Purchase date **Required for creation** | [optional]
 **damaged** | **bool** | Whether the car is damaged | [optional]
 **ship_date_limit** | [**\Dinas\ShippingSdk\Model\ShipDateLimit**](ShipDateLimit.md) |  | [optional]
-**withhold** | **string** | Reason why the car must not be handed to the client. Set it to null to allow us to do it. | [optional]
 **note** | **string** | Any comments | [optional]
 **dealer** | [**\Dinas\ShippingSdk\Model\Dealer**](Dealer.md) |  | [optional]
 **status** | [**\Dinas\ShippingSdk\Model\StockStatus**](StockStatus.md) |  | [optional]
@@ -47,6 +46,7 @@ Name | Type | Description | Notes
 **inner_cargo** | [**\Dinas\ShippingSdk\Model\InnerCargo[]**](InnerCargo.md) | Inner cargo items | [optional] [readonly]
 **albums** | [**\Dinas\ShippingSdk\Model\AlbumInfo[]**](AlbumInfo.md) | Photo albums | [optional] [readonly]
 **voyage** | [**\Dinas\ShippingSdk\Model\VoyageInfo**](VoyageInfo.md) |  | [optional] [readonly]
+**withhold** | **string** | Reason why the car must not be handed to the client. Set it to null to allow us to do it. | [optional] [readonly]
 **created_at** | **\DateTime** | Creation timestamp | [optional] [readonly]
 **updated_at** | **\DateTime** | Last update timestamp | [optional] [readonly]
 

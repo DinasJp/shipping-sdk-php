@@ -30,7 +30,6 @@ Name | Type | Description | Notes
 **purchase_date** | **\DateTime** | Purchase date **Required for creation** | [optional]
 **damaged** | **bool** | Whether the car is damaged | [optional]
 **ship_date_limit** | [**\Dinas\ShippingSdk\Model\ShipDateLimit**](ShipDateLimit.md) |  | [optional]
-**withhold** | **string** | Reason why the car must not be handed to the client. Set it to null to allow us to do it. | [optional]
 **note** | **string** | Any comments | [optional]
 **dealer** | [**\Dinas\ShippingSdk\Model\Dealer**](Dealer.md) |  | [optional]
 
