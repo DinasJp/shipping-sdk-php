@@ -88,7 +88,8 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
         'note' => 'string',
         'dealer' => '\Dinas\ShippingSdk\Model\Dealer',
         'pol' => 'string',
-        'hold' => 'bool'
+        'hold' => 'bool',
+        'meta' => 'object'
     ];
 
     /**
@@ -128,7 +129,8 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
         'note' => null,
         'dealer' => null,
         'pol' => null,
-        'hold' => null
+        'hold' => null,
+        'meta' => null
     ];
 
     /**
@@ -165,8 +167,9 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
         'ship_date_limit' => false,
         'note' => true,
         'dealer' => false,
-        'pol' => true,
-        'hold' => true
+        'pol' => false,
+        'hold' => true,
+        'meta' => true
     ];
 
     /**
@@ -284,7 +287,8 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
         'note' => 'note',
         'dealer' => 'dealer',
         'pol' => 'pol',
-        'hold' => 'hold'
+        'hold' => 'hold',
+        'meta' => 'meta'
     ];
 
     /**
@@ -322,7 +326,8 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
         'note' => 'setNote',
         'dealer' => 'setDealer',
         'pol' => 'setPol',
-        'hold' => 'setHold'
+        'hold' => 'setHold',
+        'meta' => 'setMeta'
     ];
 
     /**
@@ -360,7 +365,8 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
         'note' => 'getNote',
         'dealer' => 'getDealer',
         'pol' => 'getPol',
-        'hold' => 'getHold'
+        'hold' => 'getHold',
+        'meta' => 'getMeta'
     ];
 
     /**
@@ -450,6 +456,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('dealer', $data ?? [], null);
         $this->setIfExists('pol', $data ?? [], null);
         $this->setIfExists('hold', $data ?? [], null);
+        $this->setIfExists('meta', $data ?? [], null);
     }
 
     /**
@@ -558,6 +565,9 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'unit_price', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['pol'] === null) {
+            $invalidProperties[] = "'pol' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -1536,7 +1546,7 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets pol
      *
-     * @return string|null
+     * @return string
      */
     public function getPol()
     {
@@ -1546,21 +1556,14 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pol
      *
-     * @param string|null $pol Loading port code (e.g. TOY, OSA, KWS)
+     * @param string $pol Loading port code (e.g. TOY, OSA, KWS)
      *
      * @return self
      */
     public function setPol($pol)
     {
         if (is_null($pol)) {
-            array_push($this->openAPINullablesSetToNull, 'pol');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('pol', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable pol cannot be null');
         }
         $this->container['pol'] = $pol;
 
@@ -1597,6 +1600,40 @@ class CarData implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['hold'] = $hold;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta
+     *
+     * @return object|null
+     */
+    public function getMeta()
+    {
+        return $this->container['meta'];
+    }
+
+    /**
+     * Sets meta
+     *
+     * @param object|null $meta Arbitrary metadata. For example, `stock_id` for your local car id
+     *
+     * @return self
+     */
+    public function setMeta($meta)
+    {
+        if (is_null($meta)) {
+            array_push($this->openAPINullablesSetToNull, 'meta');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('meta', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['meta'] = $meta;
 
         return $this;
     }

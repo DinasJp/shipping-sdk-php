@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 *CarsApi* | [**setYardEta**](docs/Api/CarsApi.md#setyardeta) | **POST** /api/cars/yard/eta | Set yard ETA for cars
 *CarsApi* | [**syncCars**](docs/Api/CarsApi.md#synccars) | **POST** /api/cars | Create or update cars
 *CarsApi* | [**withholdCars**](docs/Api/CarsApi.md#withholdcars) | **POST** /api/cars/withhold | Withhold cars upon arrival
+*VoyagesApi* | [**getBlEd**](docs/Api/VoyagesApi.md#getbled) | **GET** /api/voyages/{voyage}/bl-ed | Download Bill of Lading and Export Declaration for a specific voyage
 *VoyagesApi* | [**getVoyage**](docs/Api/VoyagesApi.md#getvoyage) | **GET** /api/voyages/{voyage} | Retrieve detailed information about a specific voyage
 *VoyagesApi* | [**getVoyages**](docs/Api/VoyagesApi.md#getvoyages) | **GET** /api/voyages | Retrieve a paginated list of voyages with optional filtering and sorting
 *WebhooksApi* | [**deleteWebhook**](docs/Api/WebhooksApi.md#deletewebhook) | **DELETE** /api/webhooks/{name} | Delete a webhook

@@ -32,7 +32,8 @@ Name | Type | Description | Notes
 **ship_date_limit** | [**\Dinas\ShippingSdk\Model\ShipDateLimit**](ShipDateLimit.md) |  | [optional]
 **note** | **string** | Any comments | [optional]
 **dealer** | [**\Dinas\ShippingSdk\Model\Dealer**](Dealer.md) |  | [optional]
-**pol** | **string** | Loading port code (e.g. TOY, OSA, KWS) | [optional]
+**pol** | **string** | Loading port code (e.g. TOY, OSA, KWS) |
 **hold** | **bool** | \&quot;Do not ship\&quot; status: true &#x3D; hold, false &#x3D; ship. **Cannot be used together with &#39;ship_date_limit&#39; field.** | [optional]
+**meta** | **object** | Arbitrary metadata. For example, &#x60;stock_id&#x60; for your local car id | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

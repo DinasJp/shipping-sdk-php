@@ -176,6 +176,267 @@ class VoyagesApi
     }
 
     /**
+     * Operation getBlEd
+     *
+     * Download Bill of Lading and Export Declaration for a specific voyage
+     *
+     * @param  int $voyage Voyage ID (required)
+     *
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SplFileObject
+     */
+    public function getBlEd($voyage)
+    {
+        list($response) = $this->getBlEdWithHttpInfo($voyage);
+        return $response;
+    }
+
+    /**
+     * Operation getBlEdWithHttpInfo
+     *
+     * Download Bill of Lading and Export Declaration for a specific voyage
+     *
+     * @param  int $voyage Voyage ID (required)
+     *
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getBlEdWithHttpInfo($voyage)
+    {
+        $request = $this->getBlEdRequest($voyage);
+
+        try {
+            try {
+                $response = $this->httpClient->sendRequest($request);
+            } catch (HttpException $e) {
+                $response = $e->getResponse();
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $response->getStatusCode(),
+                        (string) $request->getUri()
+                    ),
+                    $request,
+                    $response,
+                    $e
+                );
+            } catch (ClientExceptionInterface $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $request,
+                    null,
+                    $e
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\SplFileObject',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $request,
+                    $response
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\SplFileObject',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SplFileObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getBlEdAsync
+     *
+     * Download Bill of Lading and Export Declaration for a specific voyage
+     *
+     * @param  int $voyage Voyage ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return Promise
+     */
+    public function getBlEdAsync($voyage)
+    {
+        return $this->getBlEdAsyncWithHttpInfo($voyage)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getBlEdAsyncWithHttpInfo
+     *
+     * Download Bill of Lading and Export Declaration for a specific voyage
+     *
+     * @param  int $voyage Voyage ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return Promise
+     */
+    public function getBlEdAsyncWithHttpInfo($voyage)
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->getBlEdRequest($voyage);
+
+        return $this->httpAsyncClient->sendAsyncRequest($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function (HttpException $exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $exception->getRequest(),
+                        $exception->getResponse(),
+                        $exception
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getBlEd'
+     *
+     * @param  int $voyage Voyage ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return RequestInterface
+     */
+    public function getBlEdRequest($voyage)
+    {
+        // verify the required parameter 'voyage' is set
+        if ($voyage === null || (is_array($voyage) && count($voyage) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $voyage when calling getBlEd'
+            );
+        }
+
+        $resourcePath = '/api/voyages/{voyage}/bl-ed';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = null;
+        $multipart = false;
+
+
+
+        // path params
+        if ($voyage !== null) {
+            $resourcePath = str_replace(
+                '{' . 'voyage' . '}',
+                ObjectSerializer::toPathValue($voyage),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/octet-stream'],
+            '',
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($this->headerSelector->isJsonMime($headers['Content-Type'])) {
+                $httpBody = json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (Token) authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+
+        $uri = $this->createUri($operationHost, $resourcePath, $queryParams);
+
+        return $this->createRequest('GET', $uri, $headers, $httpBody);
+    }
+
+    /**
      * Operation getVoyage
      *
      * Retrieve detailed information about a specific voyage

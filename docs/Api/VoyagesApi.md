@@ -4,9 +4,68 @@ All URIs are relative to https://shipping.dinas.jp.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getBlEd()**](VoyagesApi.md#getBlEd) | **GET** /api/voyages/{voyage}/bl-ed | Download Bill of Lading and Export Declaration for a specific voyage
 [**getVoyage()**](VoyagesApi.md#getVoyage) | **GET** /api/voyages/{voyage} | Retrieve detailed information about a specific voyage
 [**getVoyages()**](VoyagesApi.md#getVoyages) | **GET** /api/voyages | Retrieve a paginated list of voyages with optional filtering and sorting
 
+
+## `getBlEd()`
+
+```php
+getBlEd($voyage): \SplFileObject
+```
+
+Download Bill of Lading and Export Declaration for a specific voyage
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (Token) authorization: bearerAuth
+$config = Dinas\ShippingSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Dinas\ShippingSdk\Api\VoyagesApi(
+    // If you want use custom http client, pass your client which implements `Psr\Http\Client\ClientInterface`.
+    // This is optional, `Psr18ClientDiscovery` will be used to find http client. For instance `GuzzleHttp\Client` implements that interface
+    new GuzzleHttp\Client(),
+    $config
+);
+$voyage = 56; // int | Voyage ID
+
+try {
+    $result = $apiInstance->getBlEd($voyage);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VoyagesApi->getBlEd: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **voyage** | **int**| Voyage ID |
+
+### Return type
+
+**\SplFileObject**
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/octet-stream`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `getVoyage()`
 

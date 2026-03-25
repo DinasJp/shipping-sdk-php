@@ -60,7 +60,8 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'data' => '\Dinas\ShippingSdk\Model\CarModel[]',
         'links' => '\Dinas\ShippingSdk\Model\PaginationLinks',
-        'meta' => '\Dinas\ShippingSdk\Model\PaginationMeta'
+        'meta' => '\Dinas\ShippingSdk\Model\PaginationMeta',
+        'voyages' => 'array<string,\Dinas\ShippingSdk\Model\Voyage>'
     ];
 
     /**
@@ -73,7 +74,8 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'data' => null,
         'links' => null,
-        'meta' => null
+        'meta' => null,
+        'voyages' => null
     ];
 
     /**
@@ -84,7 +86,8 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'data' => false,
         'links' => false,
-        'meta' => false
+        'meta' => false,
+        'voyages' => false
     ];
 
     /**
@@ -175,7 +178,8 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'data' => 'data',
         'links' => 'links',
-        'meta' => 'meta'
+        'meta' => 'meta',
+        'voyages' => 'voyages'
     ];
 
     /**
@@ -186,7 +190,8 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'data' => 'setData',
         'links' => 'setLinks',
-        'meta' => 'setMeta'
+        'meta' => 'setMeta',
+        'voyages' => 'setVoyages'
     ];
 
     /**
@@ -197,7 +202,8 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'data' => 'getData',
         'links' => 'getLinks',
-        'meta' => 'getMeta'
+        'meta' => 'getMeta',
+        'voyages' => 'getVoyages'
     ];
 
     /**
@@ -260,6 +266,7 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('data', $data ?? [], null);
         $this->setIfExists('links', $data ?? [], null);
         $this->setIfExists('meta', $data ?? [], null);
+        $this->setIfExists('voyages', $data ?? [], null);
     }
 
     /**
@@ -381,6 +388,33 @@ class CarsPaginated implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable meta cannot be null');
         }
         $this->container['meta'] = $meta;
+
+        return $this;
+    }
+
+    /**
+     * Gets voyages
+     *
+     * @return array<string,\Dinas\ShippingSdk\Model\Voyage>|null
+     */
+    public function getVoyages()
+    {
+        return $this->container['voyages'];
+    }
+
+    /**
+     * Sets voyages
+     *
+     * @param array<string,\Dinas\ShippingSdk\Model\Voyage>|null $voyages Voyage resources for all cars on this page, keyed by voyage ID
+     *
+     * @return self
+     */
+    public function setVoyages($voyages)
+    {
+        if (is_null($voyages)) {
+            throw new \InvalidArgumentException('non-nullable voyages cannot be null');
+        }
+        $this->container['voyages'] = $voyages;
 
         return $this;
     }
