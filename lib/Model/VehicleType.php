@@ -94,7 +94,7 @@ class VehicleType
             self::SPECIAL_EQUIPMENT,
             self::EXCAVATOR,
             self::TRACTOR,
-            self::ROLLER,
+            self::ROAD_ROLLER,
             self::CRANE,
             self::FORKLIFT,
             self::BOAT
