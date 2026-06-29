@@ -67,7 +67,7 @@ class VehicleType
 
     public const TRACTOR = 'tractor';
 
-    public const ROLLER = 'roller';
+    public const ROAD_ROLLER = 'road roller';
 
     public const CRANE = 'crane';
 
