@@ -1,4 +1,4 @@
-# # SimpleResource
+# SimpleResource
 
 ## Properties
 

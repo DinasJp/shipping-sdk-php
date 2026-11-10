@@ -1,4 +1,4 @@
-# # ActionResponse
+# ActionResponse
 
 ## Properties
 

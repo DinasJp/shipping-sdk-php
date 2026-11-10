@@ -1,4 +1,4 @@
-# # Voyage
+# Voyage
 
 ## Properties
 

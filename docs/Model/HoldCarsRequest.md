@@ -1,4 +1,4 @@
-# # HoldCarsRequest
+# HoldCarsRequest
 
 ## Properties
 

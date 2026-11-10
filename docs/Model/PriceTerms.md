@@ -1,4 +1,4 @@
-# # PriceTerms
+# PriceTerms
 
 ## Properties
 

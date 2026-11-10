@@ -1,4 +1,4 @@
-# # InnerCargo
+# InnerCargo
 
 ## Properties
 

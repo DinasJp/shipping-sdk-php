@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 ## `getVoyages()`
 
 ```php
-getVoyages($status, $search, $sort, $per_page, $page): \Dinas\ShippingSdk\Model\VoyagesPaginated
+getVoyages($status, $search, $from_country, $to_country, $sort, $per_page, $page): \Dinas\ShippingSdk\Model\VoyagesPaginated
 ```
 
 Retrieve a paginated list of voyages with optional filtering and sorting
@@ -152,12 +152,14 @@ $apiInstance = new Dinas\ShippingSdk\Api\VoyagesApi(
 );
 $status = 'status_example'; // string | Filter by voyage status
 $search = 'search_example'; // string | Search by voyage number
+$from_country = 'from_country_example'; // string | Filter by country of the port of loading (ISO 3166-1 alpha-2, e.g. JP)
+$to_country = 'to_country_example'; // string | Filter by country of the port of discharge (ISO 3166-1 alpha-2, e.g. CN)
 $sort = 'sort_example'; // string | Sort field. Prefix with - for descending. **default: -id**
 $per_page = 56; // int | Number of items per page. **default: 100**
 $page = 56; // int | Page number. **default: 1**
 
 try {
-    $result = $apiInstance->getVoyages($status, $search, $sort, $per_page, $page);
+    $result = $apiInstance->getVoyages($status, $search, $from_country, $to_country, $sort, $per_page, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VoyagesApi->getVoyages: ', $e->getMessage(), PHP_EOL;
@@ -170,6 +172,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **string**| Filter by voyage status | [optional]
  **search** | **string**| Search by voyage number | [optional]
+ **from_country** | **string**| Filter by country of the port of loading (ISO 3166-1 alpha-2, e.g. JP) | [optional]
+ **to_country** | **string**| Filter by country of the port of discharge (ISO 3166-1 alpha-2, e.g. CN) | [optional]
  **sort** | **string**| Sort field. Prefix with - for descending. **default: -id** | [optional]
  **per_page** | **int**| Number of items per page. **default: 100** | [optional]
  **page** | **int**| Page number. **default: 1** | [optional]

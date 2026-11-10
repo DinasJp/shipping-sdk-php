@@ -1,4 +1,4 @@
-# # CarAlbums
+# CarAlbums
 
 ## Properties
 

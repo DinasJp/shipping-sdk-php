@@ -1,4 +1,4 @@
-# # VoyageStatus
+# VoyageStatus
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ExportType
+# ExportType
 
 ## Properties
 

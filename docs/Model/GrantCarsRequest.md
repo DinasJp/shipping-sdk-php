@@ -1,4 +1,4 @@
-# # GrantCarsRequest
+# GrantCarsRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # VoyagesPaginated
+# VoyagesPaginated
 
 ## Properties
 

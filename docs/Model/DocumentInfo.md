@@ -1,4 +1,4 @@
-# # DocumentInfo
+# DocumentInfo
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # Yard
+# Yard
 
 ## Properties
 

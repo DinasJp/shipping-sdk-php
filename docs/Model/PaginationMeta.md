@@ -1,4 +1,4 @@
-# # PaginationMeta
+# PaginationMeta
 
 ## Properties
 

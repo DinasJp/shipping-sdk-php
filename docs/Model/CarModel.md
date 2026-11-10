@@ -1,4 +1,4 @@
-# # CarModel
+# CarModel
 
 ## Properties
 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **unit_price** | **float** | Unit price (as in invoice without freight) | [optional]
 **purchase_date** | **\DateTime** | Purchase date **Required for creation** | [optional]
 **damaged** | **bool** | Whether the car is damaged | [optional]
-**ship_date_limit** | [**\Dinas\ShippingSdk\Model\ShipDateLimit**](ShipDateLimit.md) |  | [optional]
+**ship_date_limit** | [**\Dinas\ShippingSdk\Model\ShipDateLimit**](ShipDateLimit.md) | Car should be sent after or before the given date. **Cannot be used together with &#39;hold&#39; field.** | [optional]
 **note** | **string** | Any comments | [optional]
 **dealer** | [**\Dinas\ShippingSdk\Model\Dealer**](Dealer.md) |  | [optional]
 **status** | [**\Dinas\ShippingSdk\Model\StockStatus**](StockStatus.md) |  | [optional]
@@ -42,10 +42,10 @@ Name | Type | Description | Notes
 **paid_cnf** | **float** | Paid amount from shipper | [optional] [readonly]
 **paid_fob** | **float** | Paid amount from consignee | [optional] [readonly]
 **documents** | [**\Dinas\ShippingSdk\Model\CarDocuments**](CarDocuments.md) |  | [optional] [readonly]
-**yard** | [**\Dinas\ShippingSdk\Model\Yard**](Yard.md) |  | [optional] [readonly]
+**yard** | [**\Dinas\ShippingSdk\Model\Yard**](Yard.md) | Current yard | [optional] [readonly]
 **inner_cargo** | [**\Dinas\ShippingSdk\Model\InnerCargo[]**](InnerCargo.md) | Inner cargo items | [optional] [readonly]
 **albums** | [**\Dinas\ShippingSdk\Model\AlbumInfo[]**](AlbumInfo.md) | Photo albums | [optional] [readonly]
-**voyage** | [**\Dinas\ShippingSdk\Model\VoyageInfo**](VoyageInfo.md) |  | [optional] [readonly]
+**voyage** | [**\Dinas\ShippingSdk\Model\VoyageInfo**](VoyageInfo.md) | Booked voyage | [optional] [readonly]
 **withhold** | **string** | Reason why the car must not be handed to the client. Set it to null to allow us to do it. | [optional] [readonly]
 **created_at** | **\DateTime** | Creation timestamp | [optional] [readonly]
 **updated_at** | **\DateTime** | Last update timestamp | [optional] [readonly]

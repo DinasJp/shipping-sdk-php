@@ -1,4 +1,4 @@
-# # CarUpdateResponse
+# CarUpdateResponse
 
 ## Properties
 

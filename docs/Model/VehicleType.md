@@ -1,4 +1,4 @@
-# # VehicleType
+# VehicleType
 
 ## Properties
 

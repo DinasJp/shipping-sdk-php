@@ -1,4 +1,4 @@
-# # CarPrices
+# CarPrices
 
 ## Properties
 

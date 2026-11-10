@@ -1,4 +1,4 @@
-# # AlbumType
+# AlbumType
 
 ## Properties
 

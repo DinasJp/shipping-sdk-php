@@ -1,4 +1,4 @@
-# # SetYardEtaRequest
+# SetYardEtaRequest
 
 ## Properties
 

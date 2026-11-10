@@ -1,4 +1,4 @@
-# # FuelType
+# FuelType
 
 ## Properties
 

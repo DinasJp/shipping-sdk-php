@@ -1,4 +1,4 @@
-# # AlbumsPaginated
+# AlbumsPaginated
 
 ## Properties
 

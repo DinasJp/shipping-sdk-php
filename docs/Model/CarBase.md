@@ -1,4 +1,4 @@
-# # CarBase
+# CarBase
 
 ## Properties
 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **unit_price** | **float** | Unit price (as in invoice without freight) | [optional]
 **purchase_date** | **\DateTime** | Purchase date **Required for creation** | [optional]
 **damaged** | **bool** | Whether the car is damaged | [optional]
-**ship_date_limit** | [**\Dinas\ShippingSdk\Model\ShipDateLimit**](ShipDateLimit.md) |  | [optional]
+**ship_date_limit** | [**\Dinas\ShippingSdk\Model\ShipDateLimit**](ShipDateLimit.md) | Car should be sent after or before the given date. **Cannot be used together with &#39;hold&#39; field.** | [optional]
 **note** | **string** | Any comments | [optional]
 **dealer** | [**\Dinas\ShippingSdk\Model\Dealer**](Dealer.md) |  | [optional]
 
