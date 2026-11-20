@@ -181,10 +181,10 @@ class CarsApi
      * Get paginated list of cars
      *
      * @param  string $status Filter by car status (optional)
-     * @param  string $chassis Filter by chassis number (multiple values separated by spaces) (optional)
+     * @param  string $chassis Filter by exact chassis number, several separated by spaces or commas (optional)
      * @param  string $search Search by partial chassis, make, model (optional)
      * @param  string $port_code Filter by port code (optional)
-     * @param  string $voyage Filter by voyage (optional)
+     * @param  string $voyage Filter by voyage ID or exact voyage number, e.g. KRV2704TOY (optional)
      * @param  string $vehicle_state Filter by vehicle state (optional)
      * @param  string $vehicle_type Filter by vehicle type (optional)
      * @param  bool $photos Filter by photos presence (optional)
@@ -211,10 +211,10 @@ class CarsApi
      * Get paginated list of cars
      *
      * @param  string $status Filter by car status (optional)
-     * @param  string $chassis Filter by chassis number (multiple values separated by spaces) (optional)
+     * @param  string $chassis Filter by exact chassis number, several separated by spaces or commas (optional)
      * @param  string $search Search by partial chassis, make, model (optional)
      * @param  string $port_code Filter by port code (optional)
-     * @param  string $voyage Filter by voyage (optional)
+     * @param  string $voyage Filter by voyage ID or exact voyage number, e.g. KRV2704TOY (optional)
      * @param  string $vehicle_state Filter by vehicle state (optional)
      * @param  string $vehicle_type Filter by vehicle type (optional)
      * @param  bool $photos Filter by photos presence (optional)
@@ -311,10 +311,10 @@ class CarsApi
      * Get paginated list of cars
      *
      * @param  string $status Filter by car status (optional)
-     * @param  string $chassis Filter by chassis number (multiple values separated by spaces) (optional)
+     * @param  string $chassis Filter by exact chassis number, several separated by spaces or commas (optional)
      * @param  string $search Search by partial chassis, make, model (optional)
      * @param  string $port_code Filter by port code (optional)
-     * @param  string $voyage Filter by voyage (optional)
+     * @param  string $voyage Filter by voyage ID or exact voyage number, e.g. KRV2704TOY (optional)
      * @param  string $vehicle_state Filter by vehicle state (optional)
      * @param  string $vehicle_type Filter by vehicle type (optional)
      * @param  bool $photos Filter by photos presence (optional)
@@ -344,10 +344,10 @@ class CarsApi
      * Get paginated list of cars
      *
      * @param  string $status Filter by car status (optional)
-     * @param  string $chassis Filter by chassis number (multiple values separated by spaces) (optional)
+     * @param  string $chassis Filter by exact chassis number, several separated by spaces or commas (optional)
      * @param  string $search Search by partial chassis, make, model (optional)
      * @param  string $port_code Filter by port code (optional)
-     * @param  string $voyage Filter by voyage (optional)
+     * @param  string $voyage Filter by voyage ID or exact voyage number, e.g. KRV2704TOY (optional)
      * @param  string $vehicle_state Filter by vehicle state (optional)
      * @param  string $vehicle_type Filter by vehicle type (optional)
      * @param  bool $photos Filter by photos presence (optional)
@@ -402,10 +402,10 @@ class CarsApi
      * Create request for operation 'getCars'
      *
      * @param  string $status Filter by car status (optional)
-     * @param  string $chassis Filter by chassis number (multiple values separated by spaces) (optional)
+     * @param  string $chassis Filter by exact chassis number, several separated by spaces or commas (optional)
      * @param  string $search Search by partial chassis, make, model (optional)
      * @param  string $port_code Filter by port code (optional)
-     * @param  string $voyage Filter by voyage (optional)
+     * @param  string $voyage Filter by voyage ID or exact voyage number, e.g. KRV2704TOY (optional)
      * @param  string $vehicle_state Filter by vehicle state (optional)
      * @param  string $vehicle_type Filter by vehicle type (optional)
      * @param  bool $photos Filter by photos presence (optional)

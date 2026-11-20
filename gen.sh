@@ -6,6 +6,7 @@ docker run --rm \
   openapitools/openapi-generator-cli generate \
   -i https://shipping.dinas.jp/docs?api-docs.json \
   -g php \
+  --global-property apiTests=false,modelTests=false \
   -o /local/ \
   --git-user-id DinasJp \
   --git-repo-id shipping-sdk-php \

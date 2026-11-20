@@ -41,10 +41,10 @@ $apiInstance = new Dinas\ShippingSdk\Api\CarsApi(
     $config
 );
 $status = 'status_example'; // string | Filter by car status
-$chassis = 'chassis_example'; // string | Filter by chassis number (multiple values separated by spaces)
+$chassis = 'chassis_example'; // string | Filter by exact chassis number, several separated by spaces or commas
 $search = 'search_example'; // string | Search by partial chassis, make, model
 $port_code = 'port_code_example'; // string | Filter by port code
-$voyage = 'voyage_example'; // string | Filter by voyage
+$voyage = 'voyage_example'; // string | Filter by voyage ID or exact voyage number, e.g. KRV2704TOY
 $vehicle_state = 'vehicle_state_example'; // string | Filter by vehicle state
 $vehicle_type = 'vehicle_type_example'; // string | Filter by vehicle type
 $photos = True; // bool | Filter by photos presence
@@ -68,10 +68,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **string**| Filter by car status | [optional]
- **chassis** | **string**| Filter by chassis number (multiple values separated by spaces) | [optional]
+ **chassis** | **string**| Filter by exact chassis number, several separated by spaces or commas | [optional]
  **search** | **string**| Search by partial chassis, make, model | [optional]
  **port_code** | **string**| Filter by port code | [optional]
- **voyage** | **string**| Filter by voyage | [optional]
+ **voyage** | **string**| Filter by voyage ID or exact voyage number, e.g. KRV2704TOY | [optional]
  **vehicle_state** | **string**| Filter by vehicle state | [optional]
  **vehicle_type** | **string**| Filter by vehicle type | [optional]
  **photos** | **bool**| Filter by photos presence | [optional]

@@ -25,3 +25,7 @@
 composer.json
 git_push.sh
 .gitignore
+
+# no generated test stubs and no runner config for them
+phpunit.xml.dist
+.travis.yml

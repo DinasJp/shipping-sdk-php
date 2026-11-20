@@ -74,7 +74,11 @@ class Voyage implements ModelInterface, ArrayAccess, \JsonSerializable
         'loaded_at' => '\DateTime',
         'departed_at' => '\DateTime',
         'arrived_at' => '\DateTime',
-        'bl_ed' => 'string'
+        'bl_ed' => 'string',
+        'vessel_info' => '\Dinas\ShippingSdk\Model\VoyageVesselInfo',
+        'route' => '\Dinas\ShippingSdk\Model\VoyageRoute',
+        'bl_issue_date' => '\DateTime',
+        'shipping_line' => '\Dinas\ShippingSdk\Model\VoyageCompany'
     ];
 
     /**
@@ -100,7 +104,11 @@ class Voyage implements ModelInterface, ArrayAccess, \JsonSerializable
         'loaded_at' => 'date',
         'departed_at' => 'date',
         'arrived_at' => 'date',
-        'bl_ed' => 'uri'
+        'bl_ed' => 'uri',
+        'vessel_info' => null,
+        'route' => null,
+        'bl_issue_date' => 'date',
+        'shipping_line' => null
     ];
 
     /**
@@ -124,7 +132,11 @@ class Voyage implements ModelInterface, ArrayAccess, \JsonSerializable
         'loaded_at' => true,
         'departed_at' => true,
         'arrived_at' => true,
-        'bl_ed' => true
+        'bl_ed' => true,
+        'vessel_info' => false,
+        'route' => false,
+        'bl_issue_date' => false,
+        'shipping_line' => true
     ];
 
     /**
@@ -228,7 +240,11 @@ class Voyage implements ModelInterface, ArrayAccess, \JsonSerializable
         'loaded_at' => 'loaded_at',
         'departed_at' => 'departed_at',
         'arrived_at' => 'arrived_at',
-        'bl_ed' => 'bl_ed'
+        'bl_ed' => 'bl_ed',
+        'vessel_info' => 'vessel_info',
+        'route' => 'route',
+        'bl_issue_date' => 'bl_issue_date',
+        'shipping_line' => 'shipping_line'
     ];
 
     /**
@@ -252,7 +268,11 @@ class Voyage implements ModelInterface, ArrayAccess, \JsonSerializable
         'loaded_at' => 'setLoadedAt',
         'departed_at' => 'setDepartedAt',
         'arrived_at' => 'setArrivedAt',
-        'bl_ed' => 'setBlEd'
+        'bl_ed' => 'setBlEd',
+        'vessel_info' => 'setVesselInfo',
+        'route' => 'setRoute',
+        'bl_issue_date' => 'setBlIssueDate',
+        'shipping_line' => 'setShippingLine'
     ];
 
     /**
@@ -276,7 +296,11 @@ class Voyage implements ModelInterface, ArrayAccess, \JsonSerializable
         'loaded_at' => 'getLoadedAt',
         'departed_at' => 'getDepartedAt',
         'arrived_at' => 'getArrivedAt',
-        'bl_ed' => 'getBlEd'
+        'bl_ed' => 'getBlEd',
+        'vessel_info' => 'getVesselInfo',
+        'route' => 'getRoute',
+        'bl_issue_date' => 'getBlIssueDate',
+        'shipping_line' => 'getShippingLine'
     ];
 
     /**
@@ -352,6 +376,10 @@ class Voyage implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('departed_at', $data ?? [], null);
         $this->setIfExists('arrived_at', $data ?? [], null);
         $this->setIfExists('bl_ed', $data ?? [], null);
+        $this->setIfExists('vessel_info', $data ?? [], null);
+        $this->setIfExists('route', $data ?? [], null);
+        $this->setIfExists('bl_issue_date', $data ?? [], null);
+        $this->setIfExists('shipping_line', $data ?? [], null);
     }
 
     /**
@@ -859,6 +887,121 @@ class Voyage implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['bl_ed'] = $bl_ed;
+
+        return $this;
+    }
+
+    /**
+     * Gets vessel_info
+     *
+     * @return \Dinas\ShippingSdk\Model\VoyageVesselInfo|null
+     */
+    public function getVesselInfo()
+    {
+        return $this->container['vessel_info'];
+    }
+
+    /**
+     * Sets vessel_info
+     *
+     * @param \Dinas\ShippingSdk\Model\VoyageVesselInfo|null $vessel_info vessel_info
+     *
+     * @return self
+     */
+    public function setVesselInfo($vessel_info)
+    {
+        if (is_null($vessel_info)) {
+            throw new \InvalidArgumentException('non-nullable vessel_info cannot be null');
+        }
+        $this->container['vessel_info'] = $vessel_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets route
+     *
+     * @return \Dinas\ShippingSdk\Model\VoyageRoute|null
+     */
+    public function getRoute()
+    {
+        return $this->container['route'];
+    }
+
+    /**
+     * Sets route
+     *
+     * @param \Dinas\ShippingSdk\Model\VoyageRoute|null $route route
+     *
+     * @return self
+     */
+    public function setRoute($route)
+    {
+        if (is_null($route)) {
+            throw new \InvalidArgumentException('non-nullable route cannot be null');
+        }
+        $this->container['route'] = $route;
+
+        return $this;
+    }
+
+    /**
+     * Gets bl_issue_date
+     *
+     * @return \DateTime|null
+     */
+    public function getBlIssueDate()
+    {
+        return $this->container['bl_issue_date'];
+    }
+
+    /**
+     * Sets bl_issue_date
+     *
+     * @param \DateTime|null $bl_issue_date Bill of lading issue date. **Master company only**, with the voyages view permission
+     *
+     * @return self
+     */
+    public function setBlIssueDate($bl_issue_date)
+    {
+        if (is_null($bl_issue_date)) {
+            throw new \InvalidArgumentException('non-nullable bl_issue_date cannot be null');
+        }
+        $this->container['bl_issue_date'] = $bl_issue_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_line
+     *
+     * @return \Dinas\ShippingSdk\Model\VoyageCompany|null
+     */
+    public function getShippingLine()
+    {
+        return $this->container['shipping_line'];
+    }
+
+    /**
+     * Sets shipping_line
+     *
+     * @param \Dinas\ShippingSdk\Model\VoyageCompany|null $shipping_line Shipping line. **Master company only**, with the voyages view permission
+     *
+     * @return self
+     */
+    public function setShippingLine($shipping_line)
+    {
+        if (is_null($shipping_line)) {
+            array_push($this->openAPINullablesSetToNull, 'shipping_line');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('shipping_line', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['shipping_line'] = $shipping_line;
 
         return $this;
     }

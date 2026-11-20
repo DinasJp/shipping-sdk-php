@@ -94,8 +94,19 @@ Class | Method | HTTP request | Description
 *CarsApi* | [**setYardEta**](docs/Api/CarsApi.md#setyardeta) | **POST** /api/cars/yard/eta | Set yard ETA for cars
 *CarsApi* | [**syncCars**](docs/Api/CarsApi.md#synccars) | **POST** /api/cars | Create or update cars
 *CarsApi* | [**withholdCars**](docs/Api/CarsApi.md#withholdcars) | **POST** /api/cars/withhold | Withhold cars upon arrival
+*PartiesApi* | [**getParties**](docs/Api/PartiesApi.md#getparties) | **GET** /api/parties | Retrieve a paginated list of consignees and notify parties
+*PartiesApi* | [**getParty**](docs/Api/PartiesApi.md#getparty) | **GET** /api/parties/{party} | Retrieve a consignee or notify party
+*PortsApi* | [**getPorts**](docs/Api/PortsApi.md#getports) | **GET** /api/ports | Retrieve all ports
+*PortsApi* | [**getRoutes**](docs/Api/PortsApi.md#getroutes) | **GET** /api/routes | Retrieve all routes, inactive ones too
+*ShippersApi* | [**getShipper**](docs/Api/ShippersApi.md#getshipper) | **GET** /api/shippers/{shipper} | Retrieve a shipper
+*ShippersApi* | [**getShippers**](docs/Api/ShippersApi.md#getshippers) | **GET** /api/shippers | Retrieve a paginated list of shippers
+*VesselsApi* | [**getVessel**](docs/Api/VesselsApi.md#getvessel) | **GET** /api/vessels/{vessel} | Retrieve a vessel, deleted ones included
+*VesselsApi* | [**getVessels**](docs/Api/VesselsApi.md#getvessels) | **GET** /api/vessels | Retrieve a paginated list of vessels
 *VoyagesApi* | [**getBlEd**](docs/Api/VoyagesApi.md#getbled) | **GET** /api/voyages/{voyage}/bl-ed | Download Bill of Lading and Export Declaration for a specific voyage
 *VoyagesApi* | [**getVoyage**](docs/Api/VoyagesApi.md#getvoyage) | **GET** /api/voyages/{voyage} | Retrieve detailed information about a specific voyage
+*VoyagesApi* | [**getVoyageBls**](docs/Api/VoyagesApi.md#getvoyagebls) | **GET** /api/voyages/{voyage}/bls | Bills of lading of a voyage, one per number with its cargo lines. **Master company only**, with the RU BLs docs permission
+*VoyagesApi* | [**getVoyageRuBlFile**](docs/Api/VoyagesApi.md#getvoyagerublfile) | **GET** /api/voyages/{voyage}/docs/bl | RU bills of lading xlsx, the same file as the RU BLs button. **Master company only**
+*VoyagesApi* | [**getVoyageRuManifestFile**](docs/Api/VoyagesApi.md#getvoyagerumanifestfile) | **GET** /api/voyages/{voyage}/docs/manifest | RU manifest xlsx, the same file as the RU manifest button. **Master company only**
 *VoyagesApi* | [**getVoyages**](docs/Api/VoyagesApi.md#getvoyages) | **GET** /api/voyages | Retrieve a paginated list of voyages with optional filtering and sorting
 *WebhooksApi* | [**deleteWebhook**](docs/Api/WebhooksApi.md#deletewebhook) | **DELETE** /api/webhooks/{name} | Delete a webhook
 *WebhooksApi* | [**getWebhook**](docs/Api/WebhooksApi.md#getwebhook) | **GET** /api/webhooks/{name} | Retrieve a specific webhook by name
@@ -114,12 +125,24 @@ Class | Method | HTTP request | Description
 - [AlbumType](docs/Model/AlbumType.md)
 - [AlbumUrls](docs/Model/AlbumUrls.md)
 - [AlbumsPaginated](docs/Model/AlbumsPaginated.md)
+- [ApiImage](docs/Model/ApiImage.md)
+- [BillOfLading](docs/Model/BillOfLading.md)
+- [BillOfLadingConsignee](docs/Model/BillOfLadingConsignee.md)
+- [BillOfLadingLinesInner](docs/Model/BillOfLadingLinesInner.md)
+- [BillOfLadingLinesInnerInnerCargo](docs/Model/BillOfLadingLinesInnerInnerCargo.md)
+- [BillOfLadingLinesInnerStock](docs/Model/BillOfLadingLinesInnerStock.md)
+- [BillOfLadingNotify](docs/Model/BillOfLadingNotify.md)
+- [BillOfLadingShipper](docs/Model/BillOfLadingShipper.md)
+- [BillOfLadingTotals](docs/Model/BillOfLadingTotals.md)
+- [BillsOfLadingList](docs/Model/BillsOfLadingList.md)
 - [CarAlbums](docs/Model/CarAlbums.md)
 - [CarBase](docs/Model/CarBase.md)
 - [CarData](docs/Model/CarData.md)
 - [CarDocuments](docs/Model/CarDocuments.md)
 - [CarError](docs/Model/CarError.md)
 - [CarModel](docs/Model/CarModel.md)
+- [CarModelAllOfParties](docs/Model/CarModelAllOfParties.md)
+- [CarParty](docs/Model/CarParty.md)
 - [CarPrices](docs/Model/CarPrices.md)
 - [CarUpdateResponse](docs/Model/CarUpdateResponse.md)
 - [CarYardEta](docs/Model/CarYardEta.md)
@@ -137,16 +160,31 @@ Class | Method | HTTP request | Description
 - [InnerCargo](docs/Model/InnerCargo.md)
 - [PaginationLinks](docs/Model/PaginationLinks.md)
 - [PaginationMeta](docs/Model/PaginationMeta.md)
+- [PartiesPaginated](docs/Model/PartiesPaginated.md)
+- [Party](docs/Model/Party.md)
+- [Port](docs/Model/Port.md)
+- [PortsList](docs/Model/PortsList.md)
 - [PriceTerms](docs/Model/PriceTerms.md)
 - [ReleaseCarsRequest](docs/Model/ReleaseCarsRequest.md)
+- [Route](docs/Model/Route.md)
+- [RoutesList](docs/Model/RoutesList.md)
 - [SetYardEtaRequest](docs/Model/SetYardEtaRequest.md)
 - [ShipDateLimit](docs/Model/ShipDateLimit.md)
+- [Shipper](docs/Model/Shipper.md)
+- [ShippersPaginated](docs/Model/ShippersPaginated.md)
 - [SimpleResource](docs/Model/SimpleResource.md)
 - [StockStatus](docs/Model/StockStatus.md)
 - [VehicleType](docs/Model/VehicleType.md)
+- [Vessel](docs/Model/Vessel.md)
+- [VesselCaptain](docs/Model/VesselCaptain.md)
+- [VesselOperator](docs/Model/VesselOperator.md)
+- [VesselsPaginated](docs/Model/VesselsPaginated.md)
 - [Voyage](docs/Model/Voyage.md)
+- [VoyageCompany](docs/Model/VoyageCompany.md)
 - [VoyageInfo](docs/Model/VoyageInfo.md)
+- [VoyageRoute](docs/Model/VoyageRoute.md)
 - [VoyageStatus](docs/Model/VoyageStatus.md)
+- [VoyageVesselInfo](docs/Model/VoyageVesselInfo.md)
 - [VoyagesPaginated](docs/Model/VoyagesPaginated.md)
 - [Webhook](docs/Model/Webhook.md)
 - [WithholdCarsRequest](docs/Model/WithholdCarsRequest.md)
@@ -157,15 +195,6 @@ Class | Method | HTTP request | Description
 ### bearerAuth
 
 - **Type**: Bearer authentication (Token)
-
-## Tests
-
-To run the tests, use:
-
-```bash
-composer install
-vendor/bin/phpunit
-```
 
 ## Author
 

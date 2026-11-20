@@ -36,7 +36,7 @@ use \Dinas\ShippingSdk\ObjectSerializer;
  * CarAlbums Class Doc Comment
  *
  * @category Class
- * @description All car photos groped by album
+ * @description All car photos grouped by album
  * @package  Dinas\ShippingSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

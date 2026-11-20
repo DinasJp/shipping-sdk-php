@@ -698,12 +698,860 @@ class VoyagesApi
     }
 
     /**
+     * Operation getVoyageBls
+     *
+     * Bills of lading of a voyage, one per number with its cargo lines. **Master company only**, with the RU BLs docs permission
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $number Filter by exact BL number (optional)
+     * @param  string $chassis Only BLs with a line of the car with this exact chassis number (optional)
+     *
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Dinas\ShippingSdk\Model\BillsOfLadingList
+     */
+    public function getVoyageBls($voyage, $number = null, $chassis = null)
+    {
+        list($response) = $this->getVoyageBlsWithHttpInfo($voyage, $number, $chassis);
+        return $response;
+    }
+
+    /**
+     * Operation getVoyageBlsWithHttpInfo
+     *
+     * Bills of lading of a voyage, one per number with its cargo lines. **Master company only**, with the RU BLs docs permission
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $number Filter by exact BL number (optional)
+     * @param  string $chassis Only BLs with a line of the car with this exact chassis number (optional)
+     *
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Dinas\ShippingSdk\Model\BillsOfLadingList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getVoyageBlsWithHttpInfo($voyage, $number = null, $chassis = null)
+    {
+        $request = $this->getVoyageBlsRequest($voyage, $number, $chassis);
+
+        try {
+            try {
+                $response = $this->httpClient->sendRequest($request);
+            } catch (HttpException $e) {
+                $response = $e->getResponse();
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $response->getStatusCode(),
+                        (string) $request->getUri()
+                    ),
+                    $request,
+                    $response,
+                    $e
+                );
+            } catch (ClientExceptionInterface $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $request,
+                    null,
+                    $e
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Dinas\ShippingSdk\Model\BillsOfLadingList',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $request,
+                    $response
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Dinas\ShippingSdk\Model\BillsOfLadingList',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Dinas\ShippingSdk\Model\BillsOfLadingList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getVoyageBlsAsync
+     *
+     * Bills of lading of a voyage, one per number with its cargo lines. **Master company only**, with the RU BLs docs permission
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $number Filter by exact BL number (optional)
+     * @param  string $chassis Only BLs with a line of the car with this exact chassis number (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return Promise
+     */
+    public function getVoyageBlsAsync($voyage, $number = null, $chassis = null)
+    {
+        return $this->getVoyageBlsAsyncWithHttpInfo($voyage, $number, $chassis)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getVoyageBlsAsyncWithHttpInfo
+     *
+     * Bills of lading of a voyage, one per number with its cargo lines. **Master company only**, with the RU BLs docs permission
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $number Filter by exact BL number (optional)
+     * @param  string $chassis Only BLs with a line of the car with this exact chassis number (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return Promise
+     */
+    public function getVoyageBlsAsyncWithHttpInfo($voyage, $number = null, $chassis = null)
+    {
+        $returnType = '\Dinas\ShippingSdk\Model\BillsOfLadingList';
+        $request = $this->getVoyageBlsRequest($voyage, $number, $chassis);
+
+        return $this->httpAsyncClient->sendAsyncRequest($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function (HttpException $exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $exception->getRequest(),
+                        $exception->getResponse(),
+                        $exception
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getVoyageBls'
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $number Filter by exact BL number (optional)
+     * @param  string $chassis Only BLs with a line of the car with this exact chassis number (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return RequestInterface
+     */
+    public function getVoyageBlsRequest($voyage, $number = null, $chassis = null)
+    {
+        // verify the required parameter 'voyage' is set
+        if ($voyage === null || (is_array($voyage) && count($voyage) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $voyage when calling getVoyageBls'
+            );
+        }
+
+        $resourcePath = '/api/voyages/{voyage}/bls';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = null;
+        $multipart = false;
+
+        // query params
+        if ($number !== null) {
+            if('form' === 'form' && is_array($number)) {
+                foreach($number as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['number'] = $number;
+            }
+        }
+        // query params
+        if ($chassis !== null) {
+            if('form' === 'form' && is_array($chassis)) {
+                foreach($chassis as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['chassis'] = $chassis;
+            }
+        }
+
+
+        // path params
+        if ($voyage !== null) {
+            $resourcePath = str_replace(
+                '{voyage}',
+                ObjectSerializer::toPathValue($voyage),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            '',
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($this->headerSelector->isJsonMime($headers['Content-Type'])) {
+                $httpBody = json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (Token) authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+
+        $uri = $this->createUri($operationHost, $resourcePath, $queryParams);
+
+        return $this->createRequest('GET', $uri, $headers, $httpBody);
+    }
+
+    /**
+     * Operation getVoyageRuBlFile
+     *
+     * RU bills of lading xlsx, the same file as the RU BLs button. **Master company only**
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $number Only this BL number (optional)
+     *
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SplFileObject
+     */
+    public function getVoyageRuBlFile($voyage, $number = null)
+    {
+        list($response) = $this->getVoyageRuBlFileWithHttpInfo($voyage, $number);
+        return $response;
+    }
+
+    /**
+     * Operation getVoyageRuBlFileWithHttpInfo
+     *
+     * RU bills of lading xlsx, the same file as the RU BLs button. **Master company only**
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $number Only this BL number (optional)
+     *
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getVoyageRuBlFileWithHttpInfo($voyage, $number = null)
+    {
+        $request = $this->getVoyageRuBlFileRequest($voyage, $number);
+
+        try {
+            try {
+                $response = $this->httpClient->sendRequest($request);
+            } catch (HttpException $e) {
+                $response = $e->getResponse();
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $response->getStatusCode(),
+                        (string) $request->getUri()
+                    ),
+                    $request,
+                    $response,
+                    $e
+                );
+            } catch (ClientExceptionInterface $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $request,
+                    null,
+                    $e
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\SplFileObject',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $request,
+                    $response
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\SplFileObject',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SplFileObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getVoyageRuBlFileAsync
+     *
+     * RU bills of lading xlsx, the same file as the RU BLs button. **Master company only**
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $number Only this BL number (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return Promise
+     */
+    public function getVoyageRuBlFileAsync($voyage, $number = null)
+    {
+        return $this->getVoyageRuBlFileAsyncWithHttpInfo($voyage, $number)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getVoyageRuBlFileAsyncWithHttpInfo
+     *
+     * RU bills of lading xlsx, the same file as the RU BLs button. **Master company only**
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $number Only this BL number (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return Promise
+     */
+    public function getVoyageRuBlFileAsyncWithHttpInfo($voyage, $number = null)
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->getVoyageRuBlFileRequest($voyage, $number);
+
+        return $this->httpAsyncClient->sendAsyncRequest($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function (HttpException $exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $exception->getRequest(),
+                        $exception->getResponse(),
+                        $exception
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getVoyageRuBlFile'
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $number Only this BL number (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return RequestInterface
+     */
+    public function getVoyageRuBlFileRequest($voyage, $number = null)
+    {
+        // verify the required parameter 'voyage' is set
+        if ($voyage === null || (is_array($voyage) && count($voyage) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $voyage when calling getVoyageRuBlFile'
+            );
+        }
+
+        $resourcePath = '/api/voyages/{voyage}/docs/bl';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = null;
+        $multipart = false;
+
+        // query params
+        if ($number !== null) {
+            if('form' === 'form' && is_array($number)) {
+                foreach($number as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['number'] = $number;
+            }
+        }
+
+
+        // path params
+        if ($voyage !== null) {
+            $resourcePath = str_replace(
+                '{voyage}',
+                ObjectSerializer::toPathValue($voyage),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
+            '',
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($this->headerSelector->isJsonMime($headers['Content-Type'])) {
+                $httpBody = json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (Token) authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+
+        $uri = $this->createUri($operationHost, $resourcePath, $queryParams);
+
+        return $this->createRequest('GET', $uri, $headers, $httpBody);
+    }
+
+    /**
+     * Operation getVoyageRuManifestFile
+     *
+     * RU manifest xlsx, the same file as the RU manifest button. **Master company only**
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $type warehouse for the manifest for the warehouse (optional)
+     *
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SplFileObject
+     */
+    public function getVoyageRuManifestFile($voyage, $type = null)
+    {
+        list($response) = $this->getVoyageRuManifestFileWithHttpInfo($voyage, $type);
+        return $response;
+    }
+
+    /**
+     * Operation getVoyageRuManifestFileWithHttpInfo
+     *
+     * RU manifest xlsx, the same file as the RU manifest button. **Master company only**
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $type warehouse for the manifest for the warehouse (optional)
+     *
+     * @throws \Dinas\ShippingSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getVoyageRuManifestFileWithHttpInfo($voyage, $type = null)
+    {
+        $request = $this->getVoyageRuManifestFileRequest($voyage, $type);
+
+        try {
+            try {
+                $response = $this->httpClient->sendRequest($request);
+            } catch (HttpException $e) {
+                $response = $e->getResponse();
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $response->getStatusCode(),
+                        (string) $request->getUri()
+                    ),
+                    $request,
+                    $response,
+                    $e
+                );
+            } catch (ClientExceptionInterface $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $request,
+                    null,
+                    $e
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\SplFileObject',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $request,
+                    $response
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\SplFileObject',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SplFileObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getVoyageRuManifestFileAsync
+     *
+     * RU manifest xlsx, the same file as the RU manifest button. **Master company only**
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $type warehouse for the manifest for the warehouse (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return Promise
+     */
+    public function getVoyageRuManifestFileAsync($voyage, $type = null)
+    {
+        return $this->getVoyageRuManifestFileAsyncWithHttpInfo($voyage, $type)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getVoyageRuManifestFileAsyncWithHttpInfo
+     *
+     * RU manifest xlsx, the same file as the RU manifest button. **Master company only**
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $type warehouse for the manifest for the warehouse (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return Promise
+     */
+    public function getVoyageRuManifestFileAsyncWithHttpInfo($voyage, $type = null)
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->getVoyageRuManifestFileRequest($voyage, $type);
+
+        return $this->httpAsyncClient->sendAsyncRequest($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function (HttpException $exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $exception->getRequest(),
+                        $exception->getResponse(),
+                        $exception
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getVoyageRuManifestFile'
+     *
+     * @param  int $voyage Voyage ID (required)
+     * @param  string $type warehouse for the manifest for the warehouse (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return RequestInterface
+     */
+    public function getVoyageRuManifestFileRequest($voyage, $type = null)
+    {
+        // verify the required parameter 'voyage' is set
+        if ($voyage === null || (is_array($voyage) && count($voyage) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $voyage when calling getVoyageRuManifestFile'
+            );
+        }
+
+        $resourcePath = '/api/voyages/{voyage}/docs/manifest';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = null;
+        $multipart = false;
+
+        // query params
+        if ($type !== null) {
+            if('form' === 'form' && is_array($type)) {
+                foreach($type as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['type'] = $type;
+            }
+        }
+
+
+        // path params
+        if ($voyage !== null) {
+            $resourcePath = str_replace(
+                '{voyage}',
+                ObjectSerializer::toPathValue($voyage),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
+            '',
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($this->headerSelector->isJsonMime($headers['Content-Type'])) {
+                $httpBody = json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (Token) authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+
+        $uri = $this->createUri($operationHost, $resourcePath, $queryParams);
+
+        return $this->createRequest('GET', $uri, $headers, $httpBody);
+    }
+
+    /**
      * Operation getVoyages
      *
      * Retrieve a paginated list of voyages with optional filtering and sorting
      *
      * @param  string $status Filter by voyage status (optional)
      * @param  string $search Search by voyage number (optional)
+     * @param  string $number Filter by exact voyage number (optional)
      * @param  string $from_country Filter by country of the port of loading (ISO 3166-1 alpha-2, e.g. JP) (optional)
      * @param  string $to_country Filter by country of the port of discharge (ISO 3166-1 alpha-2, e.g. CN) (optional)
      * @param  string $sort Sort field. Prefix with - for descending. **default: -id** (optional)
@@ -714,9 +1562,9 @@ class VoyagesApi
      * @throws \InvalidArgumentException
      * @return \Dinas\ShippingSdk\Model\VoyagesPaginated
      */
-    public function getVoyages($status = null, $search = null, $from_country = null, $to_country = null, $sort = null, $per_page = null, $page = null)
+    public function getVoyages($status = null, $search = null, $number = null, $from_country = null, $to_country = null, $sort = null, $per_page = null, $page = null)
     {
-        list($response) = $this->getVoyagesWithHttpInfo($status, $search, $from_country, $to_country, $sort, $per_page, $page);
+        list($response) = $this->getVoyagesWithHttpInfo($status, $search, $number, $from_country, $to_country, $sort, $per_page, $page);
         return $response;
     }
 
@@ -727,6 +1575,7 @@ class VoyagesApi
      *
      * @param  string $status Filter by voyage status (optional)
      * @param  string $search Search by voyage number (optional)
+     * @param  string $number Filter by exact voyage number (optional)
      * @param  string $from_country Filter by country of the port of loading (ISO 3166-1 alpha-2, e.g. JP) (optional)
      * @param  string $to_country Filter by country of the port of discharge (ISO 3166-1 alpha-2, e.g. CN) (optional)
      * @param  string $sort Sort field. Prefix with - for descending. **default: -id** (optional)
@@ -737,9 +1586,9 @@ class VoyagesApi
      * @throws \InvalidArgumentException
      * @return array of \Dinas\ShippingSdk\Model\VoyagesPaginated, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getVoyagesWithHttpInfo($status = null, $search = null, $from_country = null, $to_country = null, $sort = null, $per_page = null, $page = null)
+    public function getVoyagesWithHttpInfo($status = null, $search = null, $number = null, $from_country = null, $to_country = null, $sort = null, $per_page = null, $page = null)
     {
-        $request = $this->getVoyagesRequest($status, $search, $from_country, $to_country, $sort, $per_page, $page);
+        $request = $this->getVoyagesRequest($status, $search, $number, $from_country, $to_country, $sort, $per_page, $page);
 
         try {
             try {
@@ -820,6 +1669,7 @@ class VoyagesApi
      *
      * @param  string $status Filter by voyage status (optional)
      * @param  string $search Search by voyage number (optional)
+     * @param  string $number Filter by exact voyage number (optional)
      * @param  string $from_country Filter by country of the port of loading (ISO 3166-1 alpha-2, e.g. JP) (optional)
      * @param  string $to_country Filter by country of the port of discharge (ISO 3166-1 alpha-2, e.g. CN) (optional)
      * @param  string $sort Sort field. Prefix with - for descending. **default: -id** (optional)
@@ -829,9 +1679,9 @@ class VoyagesApi
      * @throws \InvalidArgumentException
      * @return Promise
      */
-    public function getVoyagesAsync($status = null, $search = null, $from_country = null, $to_country = null, $sort = null, $per_page = null, $page = null)
+    public function getVoyagesAsync($status = null, $search = null, $number = null, $from_country = null, $to_country = null, $sort = null, $per_page = null, $page = null)
     {
-        return $this->getVoyagesAsyncWithHttpInfo($status, $search, $from_country, $to_country, $sort, $per_page, $page)
+        return $this->getVoyagesAsyncWithHttpInfo($status, $search, $number, $from_country, $to_country, $sort, $per_page, $page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -846,6 +1696,7 @@ class VoyagesApi
      *
      * @param  string $status Filter by voyage status (optional)
      * @param  string $search Search by voyage number (optional)
+     * @param  string $number Filter by exact voyage number (optional)
      * @param  string $from_country Filter by country of the port of loading (ISO 3166-1 alpha-2, e.g. JP) (optional)
      * @param  string $to_country Filter by country of the port of discharge (ISO 3166-1 alpha-2, e.g. CN) (optional)
      * @param  string $sort Sort field. Prefix with - for descending. **default: -id** (optional)
@@ -855,10 +1706,10 @@ class VoyagesApi
      * @throws \InvalidArgumentException
      * @return Promise
      */
-    public function getVoyagesAsyncWithHttpInfo($status = null, $search = null, $from_country = null, $to_country = null, $sort = null, $per_page = null, $page = null)
+    public function getVoyagesAsyncWithHttpInfo($status = null, $search = null, $number = null, $from_country = null, $to_country = null, $sort = null, $per_page = null, $page = null)
     {
         $returnType = '\Dinas\ShippingSdk\Model\VoyagesPaginated';
-        $request = $this->getVoyagesRequest($status, $search, $from_country, $to_country, $sort, $per_page, $page);
+        $request = $this->getVoyagesRequest($status, $search, $number, $from_country, $to_country, $sort, $per_page, $page);
 
         return $this->httpAsyncClient->sendAsyncRequest($request)
             ->then(
@@ -897,6 +1748,7 @@ class VoyagesApi
      *
      * @param  string $status Filter by voyage status (optional)
      * @param  string $search Search by voyage number (optional)
+     * @param  string $number Filter by exact voyage number (optional)
      * @param  string $from_country Filter by country of the port of loading (ISO 3166-1 alpha-2, e.g. JP) (optional)
      * @param  string $to_country Filter by country of the port of discharge (ISO 3166-1 alpha-2, e.g. CN) (optional)
      * @param  string $sort Sort field. Prefix with - for descending. **default: -id** (optional)
@@ -906,7 +1758,7 @@ class VoyagesApi
      * @throws \InvalidArgumentException
      * @return RequestInterface
      */
-    public function getVoyagesRequest($status = null, $search = null, $from_country = null, $to_country = null, $sort = null, $per_page = null, $page = null)
+    public function getVoyagesRequest($status = null, $search = null, $number = null, $from_country = null, $to_country = null, $sort = null, $per_page = null, $page = null)
     {
         if ($from_country !== null && strlen($from_country) > 2) {
             throw new \InvalidArgumentException('invalid length for "$from_country" when calling VoyagesApi.getVoyages, must be smaller than or equal to 2.');
@@ -961,6 +1813,17 @@ class VoyagesApi
             }
             else {
                 $queryParams['search'] = $search;
+            }
+        }
+        // query params
+        if ($number !== null) {
+            if('form' === 'form' && is_array($number)) {
+                foreach($number as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['number'] = $number;
             }
         }
         // query params

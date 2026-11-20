@@ -101,6 +101,9 @@ class CarModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'inner_cargo' => '\Dinas\ShippingSdk\Model\InnerCargo[]',
         'albums' => '\Dinas\ShippingSdk\Model\AlbumInfo[]',
         'voyage' => '\Dinas\ShippingSdk\Model\VoyageInfo',
+        'voyages' => '\Dinas\ShippingSdk\Model\VoyageInfo[]',
+        'parties' => '\Dinas\ShippingSdk\Model\CarModelAllOfParties',
+        'bls' => 'string[]',
         'withhold' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -156,6 +159,9 @@ class CarModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'inner_cargo' => null,
         'albums' => null,
         'voyage' => null,
+        'voyages' => null,
+        'parties' => null,
+        'bls' => null,
         'withhold' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
@@ -209,6 +215,9 @@ class CarModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'inner_cargo' => false,
         'albums' => false,
         'voyage' => true,
+        'voyages' => false,
+        'parties' => false,
+        'bls' => false,
         'withhold' => true,
         'created_at' => false,
         'updated_at' => false
@@ -342,6 +351,9 @@ class CarModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'inner_cargo' => 'inner_cargo',
         'albums' => 'albums',
         'voyage' => 'voyage',
+        'voyages' => 'voyages',
+        'parties' => 'parties',
+        'bls' => 'bls',
         'withhold' => 'withhold',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -395,6 +407,9 @@ class CarModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'inner_cargo' => 'setInnerCargo',
         'albums' => 'setAlbums',
         'voyage' => 'setVoyage',
+        'voyages' => 'setVoyages',
+        'parties' => 'setParties',
+        'bls' => 'setBls',
         'withhold' => 'setWithhold',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -448,6 +463,9 @@ class CarModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'inner_cargo' => 'getInnerCargo',
         'albums' => 'getAlbums',
         'voyage' => 'getVoyage',
+        'voyages' => 'getVoyages',
+        'parties' => 'getParties',
+        'bls' => 'getBls',
         'withhold' => 'getWithhold',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -552,6 +570,9 @@ class CarModel implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('inner_cargo', $data ?? [], null);
         $this->setIfExists('albums', $data ?? [], null);
         $this->setIfExists('voyage', $data ?? [], null);
+        $this->setIfExists('voyages', $data ?? [], null);
+        $this->setIfExists('parties', $data ?? [], null);
+        $this->setIfExists('bls', $data ?? [], null);
         $this->setIfExists('withhold', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
@@ -2107,7 +2128,7 @@ class CarModel implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets voyage
      *
-     * @param \Dinas\ShippingSdk\Model\VoyageInfo|null $voyage Booked voyage
+     * @param \Dinas\ShippingSdk\Model\VoyageInfo|null $voyage Booked voyage, the first leg of the route
      *
      * @return self
      */
@@ -2124,6 +2145,87 @@ class CarModel implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['voyage'] = $voyage;
+
+        return $this;
+    }
+
+    /**
+     * Gets voyages
+     *
+     * @return \Dinas\ShippingSdk\Model\VoyageInfo[]|null
+     */
+    public function getVoyages()
+    {
+        return $this->container['voyages'];
+    }
+
+    /**
+     * Sets voyages
+     *
+     * @param \Dinas\ShippingSdk\Model\VoyageInfo[]|null $voyages Every leg of the route by ETD. **Master company only**
+     *
+     * @return self
+     */
+    public function setVoyages($voyages)
+    {
+        if (is_null($voyages)) {
+            throw new \InvalidArgumentException('non-nullable voyages cannot be null');
+        }
+        $this->container['voyages'] = $voyages;
+
+        return $this;
+    }
+
+    /**
+     * Gets parties
+     *
+     * @return \Dinas\ShippingSdk\Model\CarModelAllOfParties|null
+     */
+    public function getParties()
+    {
+        return $this->container['parties'];
+    }
+
+    /**
+     * Sets parties
+     *
+     * @param \Dinas\ShippingSdk\Model\CarModelAllOfParties|null $parties parties
+     *
+     * @return self
+     */
+    public function setParties($parties)
+    {
+        if (is_null($parties)) {
+            throw new \InvalidArgumentException('non-nullable parties cannot be null');
+        }
+        $this->container['parties'] = $parties;
+
+        return $this;
+    }
+
+    /**
+     * Gets bls
+     *
+     * @return string[]|null
+     */
+    public function getBls()
+    {
+        return $this->container['bls'];
+    }
+
+    /**
+     * Sets bls
+     *
+     * @param string[]|null $bls Numbers of the bills of lading of the car. **Master company only**, with the RU BLs docs permission, as /api/voyages/{voyage}/bls
+     *
+     * @return self
+     */
+    public function setBls($bls)
+    {
+        if (is_null($bls)) {
+            throw new \InvalidArgumentException('non-nullable bls cannot be null');
+        }
+        $this->container['bls'] = $bls;
 
         return $this;
     }
