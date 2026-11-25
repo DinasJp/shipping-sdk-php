@@ -63,7 +63,8 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
         'code' => 'string',
         'last_name' => 'string',
         'first_name' => 'string',
-        'middle_name' => 'string'
+        'middle_name' => 'string',
+        'curator' => 'string'
     ];
 
     /**
@@ -79,7 +80,8 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
         'code' => null,
         'last_name' => null,
         'first_name' => null,
-        'middle_name' => null
+        'middle_name' => null,
+        'curator' => null
     ];
 
     /**
@@ -93,7 +95,8 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
         'code' => false,
         'last_name' => false,
         'first_name' => false,
-        'middle_name' => true
+        'middle_name' => true,
+        'curator' => true
     ];
 
     /**
@@ -187,7 +190,8 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
         'code' => 'code',
         'last_name' => 'last_name',
         'first_name' => 'first_name',
-        'middle_name' => 'middle_name'
+        'middle_name' => 'middle_name',
+        'curator' => 'curator'
     ];
 
     /**
@@ -201,7 +205,8 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
         'code' => 'setCode',
         'last_name' => 'setLastName',
         'first_name' => 'setFirstName',
-        'middle_name' => 'setMiddleName'
+        'middle_name' => 'setMiddleName',
+        'curator' => 'setCurator'
     ];
 
     /**
@@ -215,7 +220,8 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
         'code' => 'getCode',
         'last_name' => 'getLastName',
         'first_name' => 'getFirstName',
-        'middle_name' => 'getMiddleName'
+        'middle_name' => 'getMiddleName',
+        'curator' => 'getCurator'
     ];
 
     /**
@@ -281,6 +287,7 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('last_name', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('middle_name', $data ?? [], null);
+        $this->setIfExists('curator', $data ?? [], null);
     }
 
     /**
@@ -554,6 +561,40 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['middle_name'] = $middle_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets curator
+     *
+     * @return string|null
+     */
+    public function getCurator()
+    {
+        return $this->container['curator'];
+    }
+
+    /**
+     * Sets curator
+     *
+     * @param string|null $curator Curator code. Given to the dealer of a new car only if the dealer has no curator yet. An unknown code fails validation
+     *
+     * @return self
+     */
+    public function setCurator($curator)
+    {
+        if (is_null($curator)) {
+            array_push($this->openAPINullablesSetToNull, 'curator');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('curator', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['curator'] = $curator;
 
         return $this;
     }
