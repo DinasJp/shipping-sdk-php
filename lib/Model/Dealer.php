@@ -578,7 +578,7 @@ class Dealer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets curator
      *
-     * @param string|null $curator Curator code. Given to the dealer of a new car only if the dealer has no curator yet. An unknown code fails validation
+     * @param string|null $curator Curator code. Given to the dealer of a new car only if the dealer has no curator yet. An unknown code is ignored
      *
      * @return self
      */
